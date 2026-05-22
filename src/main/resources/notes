@@ -1,0 +1,10 @@
+Main
+UserInterface - menus and user input
+Art - ASCII
+Order - quests
+MenuItem - purchases
+Sandwich - Archetype
+Drink - Potions
+Chips- Rations
+Topping - traits
+ReceiptManager
