@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class UserInterface {
     //SCANNER
     private Scanner scanner = new Scanner(System.in);
-    //userInput
+    //userInput(s)
     //menus
     public void displayHomeScreen(){
         boolean running = true;
