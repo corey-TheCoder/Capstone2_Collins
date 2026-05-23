@@ -12,8 +12,8 @@ public class UserInterface {
         while(running){
             //show menu
             System.out.println("Character builder");
-            System.out.println("1.) Start a new adventure!");
-            System.out.println("0.) Leave Tavern");
+            System.out.println("1.) Start a new Quest!");
+            System.out.println("0.) Leave Tavern (Exit)");
             System.out.println("\nWhat will it be?");
             int choice = scanner.nextInt();
             //int be acting up
