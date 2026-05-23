@@ -6,7 +6,7 @@ public enum ToppingType {
     CHEESE("Arcane Infusions"),
     OTHER_TOPPINGS("Traits"),
     SAUCE("Enhancements"),
-    SIDE("Armor");
+    SIDE("Blessings");
 
     private final String displayName;
 
@@ -14,6 +14,10 @@ public enum ToppingType {
         this.displayName = displayName;
     }
     public String getDisplayName(){
+        return displayName;
+    }
+    @Override
+    public String toString(){
         return displayName;
     }
 }
