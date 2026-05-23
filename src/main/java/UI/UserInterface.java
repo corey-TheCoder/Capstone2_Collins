@@ -46,7 +46,7 @@ public class UserInterface {
             scanner.nextLine();
             switch(choice){
                 case 1:
-                    addSandwich();
+                    forgeLoadout();
                     break;
                 case 2:
                     brewPotions();
@@ -64,7 +64,23 @@ public class UserInterface {
             }
         }
     }
-    public void addSandwich(){
-        System.out.println();
+    //sandwich
+    public void forgeLoadout(){
+        System.out.println("\nForge Adventurer Loadout (sandwich)");
+        System.out.println("tbd.....");
+    }
+    //drinks
+    public void brewPotions(){
+        System.out.println("\nBrew Potions");
+        System.out.println("tbd...");
+    }
+    //chips
+    public void purchaseRations(){
+        System.out.println("\nPack Rations");
+        System.out.println("tbd...");
+    }
+    public void startJourney(){
+        System.out.println("\nBegin Quest");
+        System.out.println("tbd...");
     }
 }
