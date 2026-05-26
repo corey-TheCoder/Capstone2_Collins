@@ -37,6 +37,7 @@ public class Toppings {
     public void setExtra(boolean extra) {
         this.extra = extra;
     }
+
     @Override
     public String toString(){
         return (extra ? "Extra" : "") + name + " (" + type + ")";

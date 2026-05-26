@@ -15,6 +15,10 @@ public class Order {
         return items;
     }
     //no setter needed
+
+    public void addItem(MenuItems item){
+        items.add(item);
+    }
     public double getOrderTotal(){
         double total = 0;
 

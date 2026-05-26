@@ -12,11 +12,11 @@ public class Sandwich extends MenuItems {
     private boolean toasted;
     private ArrayList<Toppings> toppings;
 
-    public Sandwich(BreadType breadType, SandwichSize size, boolean toasted, ArrayList<Toppings> toppings) {
+    public Sandwich(BreadType breadType, SandwichSize size, boolean toasted) {
         this.breadType = breadType;
         this.size = size;
         this.toasted = toasted;
-        this.toppings = toppings;
+        this.toppings = new ArrayList<>();
     }
 
     public BreadType getBreadType() {
@@ -49,6 +49,9 @@ public class Sandwich extends MenuItems {
 
     public void setToppings(ArrayList<Toppings> toppings) {
         this.toppings = toppings;
+    }
+    public void addToppings(Toppings topping){
+        toppings.add(topping);
     }
 
     @Override

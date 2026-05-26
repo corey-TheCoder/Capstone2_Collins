@@ -2,8 +2,10 @@ package UI;
 
 import enums.BreadType;
 import enums.SandwichSize;
+import enums.ToppingType;
 import org.example.Order;
 import org.example.Sandwich;
+import org.example.Toppings;
 import org.w3c.dom.ls.LSOutput;
 
 import java.util.Scanner;
@@ -137,5 +139,54 @@ public class UserInterface {
         String input = scanner.nextLine();
 
         return input.equalsIgnoreCase("Y");
+    }
+    private void selectToppings(Sandwich sandwich){
+        boolean addToppings = true;
+
+        while(addToppings){
+            System.out.println("Rare Enhancements" +
+                    "\n1.) Dragon's Heart" +
+                    "\n2.) Smoked Boar" +
+                    "\n3.) Phoenix Beak" +
+                    "\n4.) Rabbit's Tail"+
+                    "\n5.) Griffin Claw"+
+                    "\n6.) Raven Feathers");
+            System.out.println("Choose your rare enhancements: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice){
+                case 1:
+                    sandwich.addToppings(new Toppings("Dragon's Heart",
+                            ToppingType.MEAT,false
+                    ));
+                    break;
+                case 2:
+                    sandwich.addToppings(new Toppings("Smoked Boar",
+                            ToppingType.MEAT,false));
+                    break;
+                case 3:
+                    sandwich.addToppings(new Toppings("Phoenix Beak",
+                            ToppingType.MEAT,false));
+                    break;
+                case 4:
+                    sandwich.addToppings(new Toppings("Rabbit's Tail",
+                            ToppingType.MEAT,false));
+                    break;
+                case 5:
+                    sandwich.addToppings(new Toppings("Griffin Claw",
+                            ToppingType.MEAT,false));
+                    break;
+                case 6:
+                    sandwich.addToppings(new Toppings("Raven Feathers",
+                            ToppingType.MEAT,false));
+                    break;
+                case 0:
+                    addToppings=false;
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
+
+        }
     }
 }
