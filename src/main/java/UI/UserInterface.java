@@ -3,6 +3,7 @@ package UI;
 import enums.BreadType;
 import enums.SandwichSize;
 import org.example.Order;
+import org.example.Sandwich;
 import org.w3c.dom.ls.LSOutput;
 
 import java.util.Scanner;
@@ -50,24 +51,30 @@ public class UserInterface {
             System.out.println("3.) Purchase Rations (add chips)");
             System.out.println("4.) Start journey (checkout");
             System.out.println("0. Abandon destiny (cancel order)");
+            System.out.println("What will it be?");
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch(choice){
                 case 1:
+                    //add sandwich
                     forgeLoadout();
                     break;
                 case 2:
+                    //add drink
                     brewPotions();
                     break;
                 case 3:
+                    //add chips
                     purchaseRations();
                     break;
                 case 4:
+                    //checkout
                     startJourney();
                     break;
                 case 0:
                     System.out.println("\nDestiny has yet to call this one..");
                 default:
+                    //input error
                     System.out.println("\n.. too much ale again huh?");
             }
         }
@@ -76,6 +83,12 @@ public class UserInterface {
     public void forgeLoadout(){
         System.out.println("\nForge Adventurer Loadout (sandwich)");
         System.out.println("tbd.....");
+        BreadType bread = selectBread();
+        SandwichSize size = selectSize();
+        boolean toasted = selectToasted();
+        Sandwich sandwich = new Sandwich(bread, size, toasted);
+        currentOrder.addItem(sandwich);
+        System.out.println("\nLoadout added to Quest!!");
     }
     //drinks
     public void brewPotions(){
@@ -118,5 +131,11 @@ public class UserInterface {
 
         return rank[choice -1];
     }
+    //Forged in flame
+    private boolean selectToasted(){
+        System.out.println("\nWould you like to be FORGED in flame? (Y/N");
+        String input = scanner.nextLine();
 
+        return input.equalsIgnoreCase("Y");
+    }
 }
