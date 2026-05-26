@@ -1,5 +1,6 @@
 package org.example;
 
-public class MenuItems {
+public abstract class MenuItems{
     //purchases
+    public abstract double getPrice();
 }

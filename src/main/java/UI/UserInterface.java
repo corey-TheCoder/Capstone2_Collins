@@ -1,10 +1,16 @@
 package UI;
 
+import enums.BreadType;
+import enums.SandwichSize;
+import org.example.Order;
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Scanner;
 
 public class UserInterface {
     //SCANNER
     private Scanner scanner = new Scanner(System.in);
+    private Order currentOrder;
     //userInput(s)
     //menus
     public void displayHomeScreen(){
@@ -20,7 +26,9 @@ public class UserInterface {
             scanner.nextLine();
             switch(choice){
                 case 1:
+                    currentOrder = new Order();
                     displayOrderScreen();
+                    break;
                 case 0:
                     running = false;
                     System.out.println("\nThis journey is not for you, safe travels!");
@@ -83,4 +91,32 @@ public class UserInterface {
         System.out.println("\nBegin Quest");
         System.out.println("tbd...");
     }
+
+    //return breadType
+    private BreadType selectBread(){
+        System.out.println("\nChoose your class build!");
+        BreadType[] archetypes = BreadType.values();
+        for (int i = 0; i < archetypes.length; i++){
+            System.out.println((i+1) + ". " + archetypes[i]);
+        }
+        System.out.println("\nChoice: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        return archetypes[choice - 1];
+    }
+    //return difficulty
+    private SandwichSize selectSize(){
+        System.out.println("\nChoose your rank!");
+        SandwichSize[] rank = SandwichSize.values();
+        for (int i = 0; i < rank.length;i++){
+            System.out.println((i + 1) + ". " + rank[i]);
+        }
+        System.out.println("\nChoice: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+
+        return rank[choice -1];
+    }
+
 }
