@@ -108,7 +108,13 @@ public class Sandwich extends MenuItems {
     }
     @Override
     public String toString(){
-        return size + " " + breadType + " Sandwich (Forged in flame: " + toasted + ")";
+        String sandwichInfo = size + " " + breadType +
+                " Sandwich\n" + "Forged in flame: " +
+                (toasted ? "Yes" : "No") + "\n\nToppings:\n";
+        for (Toppings toppings : toppings){
+            sandwichInfo += "- " + toppings + "\n";
+        }
+        return sandwichInfo;
     }
 }
 

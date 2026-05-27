@@ -40,6 +40,6 @@ public class Toppings {
 
     @Override
     public String toString(){
-        return (extra ? "Extra" : "") + name + " (" + type + ")";
+        return (extra ? "Extra " : "") + name + " (" + type + ")";
     }
 }
