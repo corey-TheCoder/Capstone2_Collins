@@ -50,13 +50,61 @@ public class Sandwich extends MenuItems {
     public void setToppings(ArrayList<Toppings> toppings) {
         this.toppings = toppings;
     }
-    public void addToppings(Toppings topping){
+
+    public void addToppings(Toppings topping) {
         toppings.add(topping);
     }
 
     @Override
     public double getPrice() {
-        return 0;
+        double price = 0;
+        switch (size) {
+            //basePrice
+            case FOUR_INCH -> {
+                price = 5.50;
+                break;
+            }
+            case EIGHT_INCH -> {
+                price = 7.00;
+                break;
+            }
+            case FOOT_LONG -> {
+                price = 8.50;
+                break;
+            }
+        }
+        //toppings
+        for(Toppings toppings : toppings) {
+            switch (toppings.getType()) {
+                //MEAT prices(extra)
+                case MEAT:
+                    switch (size) {
+                        case FOUR_INCH:
+                            price += toppings.isExtra() ? 1.50 : 1.00;
+                            break;
+                        case EIGHT_INCH:
+                            price += toppings.isExtra() ? 3.00 : 2.00;
+                            break;
+                        case FOOT_LONG:
+                            price += toppings.isExtra() ? 4.50 : 3.00;
+                    }
+                    break;
+                    //Cheese prices (extra)
+                case CHEESE:
+                    switch(size){
+                        case FOUR_INCH:
+                            price += toppings.isExtra()? 1.05 : 0.75;
+                            break;
+                        case EIGHT_INCH:
+                            price += toppings.isExtra()? 2.10 : 1.50;
+                            break;
+                        case FOOT_LONG:
+                            price += toppings.isExtra()? 3.15 : 22.5;
+                }
+                break;
+            }
+        }
+        return price;
     }
     @Override
     public String toString(){
