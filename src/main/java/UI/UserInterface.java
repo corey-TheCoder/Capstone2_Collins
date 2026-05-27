@@ -13,6 +13,7 @@ public class UserInterface {
     private Scanner scanner = new Scanner(System.in);
     private Order currentOrder;
     private ReceiptManager receiptManager;
+
     public UserInterface(){
         receiptManager = new ReceiptManager();
     }
@@ -21,7 +22,7 @@ public class UserInterface {
         boolean running = true;
         while(running){
             //show menu
-            System.out.println("Character builder");
+            System.out.println("\nCharacter builder");
             System.out.println("1.) Start a new Quest!");
             System.out.println("0.) Leave Tavern (Exit)");
             System.out.println("\nWhat will it be?");
@@ -76,6 +77,7 @@ public class UserInterface {
                     break;
                 case 0:
                     System.out.println("\nDestiny has yet to call this one..");
+                    break;
                 default:
                     //input error
                     System.out.println("\n.. too much ale again huh?");
@@ -140,7 +142,7 @@ public class UserInterface {
     }
     //Forged in flame
     private boolean selectToasted(){
-        System.out.println("\nWould you like to be FORGED in flame? (Y/N");
+        System.out.println("\nWould you like to be FORGED in flame? (Y/N)");
         String input = scanner.nextLine();
 
         return input.equalsIgnoreCase("Y");
@@ -149,12 +151,12 @@ public class UserInterface {
         boolean addToppings = true;
 
         while(addToppings){
-            System.out.println("===Topping Menu===" +
-                    "\n1.) Rare Enhancements" +
-                    "\n2.) Arcane Infusions " +
-                    "\n3.) Traits" +
-                    "\n4.) Enhancements"+
-                    "\n0.) Finish");
+            System.out.println("\n===Main Menu===" +
+                    "\n1.) Rare Enhancements(Meat)" +
+                    "\n2.) Arcane Infusions(Cheese) " +
+                    "\n3.) Traits(Regular Toppings)" +
+                    "\n4.) Enhancements(Sauces)"+
+                    "\n0.) Back");
             System.out.println("Where would you like to begin: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -184,13 +186,14 @@ public class UserInterface {
         boolean addToppings = true;
 
         while (addToppings) {
-            System.out.println("Meat Menu" +
-                    "\n1.) Rare Enhancements" +
-                    "\n2.) Smoked Boar" +
-                    "\n3.) Phoenix Beak" +
-                    "\n4.) Rabbit's Tail" +
-                    "\n5.) Griffin Claw" +
-                    "\n6.) Raven Feathers");
+            System.out.println("===Meat Menu" +
+                    "\n1.) Dragon's Heart (Steak)" +
+                    "\n2.) Smoked Boar (Ham)" +
+                    "\n3.) Phoenix Beak(Salami)" +
+                    "\n4.) Rabbit's Tail(Roast Beef" +
+                    "\n5.) Griffin Claw(Chicken)" +
+                    "\n6.) Raven Feathers(Bacon)" +
+                    "\n0. Back");
             System.out.println("Choose your rare enhancements: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -199,42 +202,51 @@ public class UserInterface {
                     sandwich.addToppings(new Toppings("Dragon's Heart",
                             ToppingType.MEAT, false
                     ));
+                    System.out.println("Rare Enhancement received");
                     break;
                 case 2:
                     sandwich.addToppings(new Toppings("Smoked Boar",
                             ToppingType.MEAT, false));
+                    System.out.println("Rare Enhancement received");
+
                     break;
                 case 3:
                     sandwich.addToppings(new Toppings("Phoenix Beak",
                             ToppingType.MEAT, false));
+                    System.out.println("Rare Enhancement received");
+
                     break;
                 case 4:
                     sandwich.addToppings(new Toppings("Rabbit's Tail",
                             ToppingType.MEAT, false));
+                    System.out.println("Rare Enhancement received");
                     break;
                 case 5:
                     sandwich.addToppings(new Toppings("Griffin Claw",
                             ToppingType.MEAT, false));
+                    System.out.println("Rare Enhancement received");
+
                     break;
                 case 6:
                     sandwich.addToppings(new Toppings("Raven Feathers",
                             ToppingType.MEAT, false));
+                    System.out.println("Rare Enhancement received");
                     break;
                 case 0:
-                    addToppings = false;
+                    addToppings =false;
                     break;
                 default:
-                    System.out.println("Invalid choice");
+                    return;
             }
         }
     }
     private void addCheese(Sandwich sandwich){
         System.out.println("===Cheese Menu==" +
                 "\n1.) Flame, Grant Me Strength" +
-                "\2.) Golden Vow" +
+                "\n2.) Golden Vow" +
                 "\n3.) Blessings of the Erdtree" +
                 "\n4.) Black Flame's Protection");
-        System.out.println("Choose your incantation carefully. As this will be your main source" +
+        System.out.println("Choose your incantation carefully. As this will be your main source " +
                 "of magic protection");
         int choice = scanner.nextInt();
         scanner.nextLine();
@@ -242,17 +254,21 @@ public class UserInterface {
             case 1:
                 sandwich.addToppings(new Toppings("Flame, Grant Me Strength",
                         ToppingType.CHEESE, false));
+                System.out.println("\nBlessing added!");
                 break;
             case 2:
                 sandwich.addToppings(new Toppings("Golden Vow",
                         ToppingType.CHEESE, false));
+                System.out.println("\nBlessing added!");
                 break;
             case 3:
                 sandwich.addToppings(new Toppings("Blessing of the Erdtree",
                         ToppingType.CHEESE, false));
+                System.out.println("\nBlessing added!");
             case 4:
                 sandwich.addToppings(new Toppings("Black Flame's Protection",
                         ToppingType.CHEESE, false));
+                System.out.println("\nBlessing added!");
             default:
                 return;
         }
@@ -263,7 +279,7 @@ public class UserInterface {
                 "\n2.) Peppers" +
                 "\n3.) Onions" +
                 "\n4.) Tomatoes" +
-                "\5.) Jalapenos" +
+                "\n5.) Jalapenos" +
                 "\6.) Cucumbers" +
                 "\n7.) Pickles" +
                 "\n8.) Guacamole" +
@@ -273,7 +289,7 @@ public class UserInterface {
         scanner.nextLine();
         switch (choice){
             case 1:
-                sandwich.addToppings(new Toppings("Lettucs",
+                sandwich.addToppings(new Toppings("Lettuce",
                         ToppingType.OTHER_TOPPINGS, false));
                 break;
             case 2:

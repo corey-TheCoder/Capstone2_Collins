@@ -2,7 +2,7 @@ package UI;
 
 public class Art {
     public static void displayQuestMenu(){
-        System.out.println("QUEST PREP");
+        System.out.println("\nQUEST PREP");
 
     }
 
