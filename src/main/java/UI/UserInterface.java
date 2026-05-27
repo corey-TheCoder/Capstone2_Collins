@@ -183,9 +183,6 @@ public class UserInterface {
     }
 
     private void addMeats(Sandwich sandwich) {
-        boolean addToppings = true;
-
-        while (addToppings) {
             System.out.println("===Meat Menu" +
                     "\n1.) Dragon's Heart (Steak)" +
                     "\n2.) Smoked Boar (Ham)" +
@@ -230,16 +227,13 @@ public class UserInterface {
                 case 6:
                     sandwich.addToppings(new Toppings("Raven Feathers",
                             ToppingType.MEAT, false));
-                    System.out.println("Rare Enhancement received");
-                    break;
-                case 0:
-                    addToppings =false;
+                    System.out.println("\nRare Enhancement received");
                     break;
                 default:
-                    return;
+                    System.out.println("Returning to Toppings Menu");;
             }
         }
-    }
+
     private void addCheese(Sandwich sandwich){
         System.out.println("===Cheese Menu==" +
                 "\n1.) Flame, Grant Me Strength" +
@@ -265,101 +259,123 @@ public class UserInterface {
                 sandwich.addToppings(new Toppings("Blessing of the Erdtree",
                         ToppingType.CHEESE, false));
                 System.out.println("\nBlessing added!");
+                break;
             case 4:
                 sandwich.addToppings(new Toppings("Black Flame's Protection",
                         ToppingType.CHEESE, false));
                 System.out.println("\nBlessing added!");
+                break;
             default:
                 return;
         }
     }
     public void addRegularToppings(Sandwich sandwich){
-        System.out.println("==== Reg Toppings" +
-                "\n1.) Lettuce" +
-                "\n2.) Peppers" +
-                "\n3.) Onions" +
-                "\n4.) Tomatoes" +
-                "\n5.) Jalapenos" +
-                "\6.) Cucumbers" +
-                "\n7.) Pickles" +
-                "\n8.) Guacamole" +
-                "\n9.) Mushrooms");
-        System.out.println("Choose your ....");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
-        switch (choice){
-            case 1:
-                sandwich.addToppings(new Toppings("Lettuce",
-                        ToppingType.OTHER_TOPPINGS, false));
-                break;
-            case 2:
-                sandwich.addToppings(new Toppings("Peppers",
-                        ToppingType.OTHER_TOPPINGS, false));
-                break;
-            case 3:
-                sandwich.addToppings(new Toppings("Onions",
-                        ToppingType.OTHER_TOPPINGS, false));
-                break;
-            case 4:
-                sandwich.addToppings(new Toppings("Tomatoes",
-                        ToppingType.OTHER_TOPPINGS, false));
-                break;
-            case 5:
-                sandwich.addToppings(new Toppings("Jalapenos",
-                        ToppingType.OTHER_TOPPINGS, false));
-                break;
-            case 6:
-                sandwich.addToppings(new Toppings("Cucumbers",
-                        ToppingType.OTHER_TOPPINGS, false));
-                break;
-            case 7:
-                sandwich.addToppings(new Toppings("Pickles",
-                        ToppingType.OTHER_TOPPINGS, false));
-                break;
-            case 8:
-                sandwich.addToppings(new Toppings("Guacamole",
-                        ToppingType.OTHER_TOPPINGS, false));
-                break;
-            case 9:
-                sandwich.addToppings(new Toppings("Mushrooms",
-                        ToppingType.OTHER_TOPPINGS, false));
-                break;
-            default:
-                return;
+        boolean moreToppings = true;
+        while (moreToppings) {
+            System.out.println("==== Reg Toppings ====" +
+                    "\n1.) Lettuce" +
+                    "\n2.) Peppers" +
+                    "\n3.) Onions" +
+                    "\n4.) Tomatoes" +
+                    "\n5.) Jalapenos" +
+                    "\n6.) Cucumbers" +
+                    "\n7.) Pickles" +
+                    "\n8.) Guacamole" +
+                    "\n9.) Mushrooms" +
+                    "\n0.) Back");
+            System.out.println("Choose your ....");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice) {
+                case 1:
+                    sandwich.addToppings(new Toppings("Lettuce",
+                            ToppingType.OTHER_TOPPINGS, false));
+                    break;
+                case 2:
+                    sandwich.addToppings(new Toppings("Peppers",
+                            ToppingType.OTHER_TOPPINGS, false));
+                    break;
+                case 3:
+                    sandwich.addToppings(new Toppings("Onions",
+                            ToppingType.OTHER_TOPPINGS, false));
+                    break;
+                case 4:
+                    sandwich.addToppings(new Toppings("Tomatoes",
+                            ToppingType.OTHER_TOPPINGS, false));
+                    break;
+                case 5:
+                    sandwich.addToppings(new Toppings("Jalapenos",
+                            ToppingType.OTHER_TOPPINGS, false));
+                    break;
+                case 6:
+                    sandwich.addToppings(new Toppings("Cucumbers",
+                            ToppingType.OTHER_TOPPINGS, false));
+                    break;
+                case 7:
+                    sandwich.addToppings(new Toppings("Pickles",
+                            ToppingType.OTHER_TOPPINGS, false));
+                    break;
+                case 8:
+                    sandwich.addToppings(new Toppings("Guacamole",
+                            ToppingType.OTHER_TOPPINGS, false));
+                    break;
+                case 9:
+                    sandwich.addToppings(new Toppings("Mushrooms",
+                            ToppingType.OTHER_TOPPINGS, false));
+                    break;
+                case 0:
+                    moreToppings=false;
+                default:
+                    System.out.println("Invalid choice!");
+            }
         }
     }
+    //
     public void addSauces(Sandwich sandwich) {
-        System.out.println("===Sauces" +
-                "\n1.) Mayo" +
-                "\n2.) Mustard" +
-                "\n3.) Ketchup" +
-                "\n4.) Ranch" +
-                "\n5.) Thousand Island" +
-                "\n6.) Vinaigrette");
-        System.out.println("\nChoose your....");
-        int choice = scanner.nextInt();
-        scanner.nextInt();
-        switch (choice) {
-            case 1:
-                sandwich.addToppings(new Toppings("Mayo",
-                        ToppingType.SAUCE, false));
-            case 2:
-                sandwich.addToppings(new Toppings("Mustard",
-                        ToppingType.SAUCE, false));
-            case 3:
-                sandwich.addToppings(new Toppings("Ketchup",
-                        ToppingType.SAUCE, false));
-            case 4:
-                sandwich.addToppings(new Toppings("Ranch",
-                        ToppingType.SAUCE, false));
-            case 5:
-                sandwich.addToppings(new Toppings("Thousand Island",
-                        ToppingType.SAUCE, false));
-            case 6:
-                sandwich.addToppings(new Toppings("Vinaigrette",
-                        ToppingType.SAUCE, false));
-            default:
-                return;
+        boolean moreSauce=true;
+        while(moreSauce) {
+            System.out.println("===Sauces" +
+                    "\n1.) Mayo" +
+                    "\n2.) Mustard" +
+                    "\n3.) Ketchup" +
+                    "\n4.) Ranch" +
+                    "\n5.) Thousand Island" +
+                    "\n6.) Vinaigrette" +
+                    "\n0.) Back");
+            System.out.println("\nChoose your....");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice) {
+                case 1:
+                    sandwich.addToppings(new Toppings("Mayo",
+                            ToppingType.SAUCE, false));
+                    break;
+                case 2:
+                    sandwich.addToppings(new Toppings("Mustard",
+                            ToppingType.SAUCE, false));
+                    break;
+                case 3:
+                    sandwich.addToppings(new Toppings("Ketchup",
+                            ToppingType.SAUCE, false));
+                    break;
+                case 4:
+                    sandwich.addToppings(new Toppings("Ranch",
+                            ToppingType.SAUCE, false));
+                    break;
+                case 5:
+                    sandwich.addToppings(new Toppings("Thousand Island",
+                            ToppingType.SAUCE, false));
+                    break;
+                case 6:
+                    sandwich.addToppings(new Toppings("Vinaigrette",
+                            ToppingType.SAUCE, false));
+                    break;
+                case 0:
+                    moreSauce=false;
+                    break;
+                default:
+                    System.out.println("\nSauce added!");
+            }
         }
     }
     //potions
