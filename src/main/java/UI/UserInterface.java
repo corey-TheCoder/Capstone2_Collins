@@ -369,9 +369,12 @@ public class UserInterface {
             default:
                 System.out.println("Invalid choice");
                 return;
-
-                //then maybe a question following about an AOW or an affinity
         }
+        System.out.println("Choose potion affinity: ");
+        String affinity = scanner.nextLine();
+        Drink drink = new Drink(affinity, size);
+        currentOrder.addItem(drink);
+        System.out.println("Potion added!");
     }
     //rations
     public void addChips(){
