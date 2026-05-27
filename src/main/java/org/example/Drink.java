@@ -28,7 +28,16 @@ public class Drink extends MenuItems {
 
     @Override
     public double getPrice() {
-        return 0;
+        switch (size.toLowerCase()){
+            case "small":
+                return 2.00;
+            case "medium":
+                return 2.50;
+            case "large":
+                return 3.00;
+            default:
+                return 0;
+        }
     }
     @Override
     public String toString(){

@@ -302,7 +302,7 @@ public class UserInterface {
                 return;
         }
     }
-    public void addSauces(Sandwich sandwich){
+    public void addSauces(Sandwich sandwich) {
         System.out.println("===Sauces" +
                 "\n1.) Mayo" +
                 "\n2.) Mustard" +
@@ -313,7 +313,7 @@ public class UserInterface {
         System.out.println("\nChoose your....");
         int choice = scanner.nextInt();
         scanner.nextInt();
-        switch(choice){
+        switch (choice) {
             case 1:
                 sandwich.addToppings(new Toppings("Mayo",
                         ToppingType.SAUCE, false));
@@ -334,6 +334,33 @@ public class UserInterface {
                         ToppingType.SAUCE, false));
             default:
                 return;
+        }
+    }
+    public void addDrink(){
+        System.out.println("===Brew Potion==" +
+                "\n1.) Small" +
+                "\n2.) Medium" +
+                "\n3.) Large");
+        System.out.println("Choose size: ...");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        String size = "";
+        switch (choice){
+            case 1:
+                size ="small";
+                break;
+            case 2:
+                size = "medium";
+                break;
+            case 3:
+                size = "large";
+                break;
+            default:
+                System.out.println("Invalid choice");
+                return;
+
+
+                //then maybe a question following about an AOW or an affinity
         }
     }
 }
