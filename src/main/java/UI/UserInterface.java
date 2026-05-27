@@ -101,13 +101,55 @@ public class UserInterface {
     }
     //drinks
     public void brewPotions(){
-        System.out.println("\nBrew Potions");
-        System.out.println("tbd...");
+        System.out.println("===Brew Potion==" +
+                "\n1.) Small" +
+                "\n2.) Medium" +
+                "\n3.) Large");
+        System.out.println("Choose size: ...");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        String size = "";
+        switch (choice){
+            case 1:
+                size ="small";
+                break;
+            case 2:
+                size = "medium";
+                break;
+            case 3:
+                size = "large";
+                break;
+            default:
+                System.out.println("Invalid choice");
+                return;
+        }
+        System.out.println("Choose potion affinity: ");
+        String flavor = scanner.nextLine();
+        Drink drink = new Drink(flavor, size);
+        currentOrder.addItem(drink);
+        System.out.println("Potion added!");
     }
     //chips
     public void purchaseRations(){
-        System.out.println("\nPack Rations");
-        System.out.println("tbd...");
+        System.out.println("\nChoose ration type " +
+                "\n1.Chips)" +
+                "\n2.) Pretzels" +
+                "\n.3) Nachos");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        String type;
+        switch(choice){
+            case 1:
+                type = "Chips";break;
+            case 2:
+                type = "Pretzel";break;
+            case 3:
+                type = "Nachos";break;
+            default:
+                System.out.println("Invalid choice");
+                return;
+        }
+        System.out.println("Rations successfully added");
     }
     public void startJourney(){
         System.out.println("\nBegin Quest");
@@ -394,43 +436,4 @@ public class UserInterface {
             }
         }
     }
-    //potions
-    public void addDrink(){
-        System.out.println("===Brew Potion==" +
-                "\n1.) Small" +
-                "\n2.) Medium" +
-                "\n3.) Large");
-        System.out.println("Choose size: ...");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
-        String size = "";
-        switch (choice){
-            case 1:
-                size ="small";
-                break;
-            case 2:
-                size = "medium";
-                break;
-            case 3:
-                size = "large";
-                break;
-            default:
-                System.out.println("Invalid choice");
-                return;
-        }
-        System.out.println("Choose potion affinity: ");
-        String affinity = scanner.nextLine();
-        Drink drink = new Drink(affinity, size);
-        currentOrder.addItem(drink);
-        System.out.println("Potion added!");
-    }
-    //rations
-    public void addChips(){
-        System.out.println("\nChoose ration type");
-        String rationType = scanner.nextLine();
-        Chips chip = new Chips(rationType);
-        currentOrder.addItem(chip);
-        System.out.println("Rations successfully added");
-    }
-
 }
