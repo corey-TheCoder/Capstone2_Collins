@@ -1,6 +1,7 @@
 package UI;
 
 import enums.BreadType;
+import enums.DrinkSize;
 import enums.SandwichSize;
 import enums.ToppingType;
 import org.example.*;
@@ -108,16 +109,16 @@ public class UserInterface {
         System.out.println("Choose size: ...");
         int choice = scanner.nextInt();
         scanner.nextLine();
-        String size = "";
+        DrinkSize size;
         switch (choice){
             case 1:
-                size ="small";
+                size = DrinkSize.SMALL;
                 break;
             case 2:
-                size = "medium";
+                size = DrinkSize.MEDIUM;
                 break;
             case 3:
-                size = "large";
+                size = DrinkSize.LARGE;
                 break;
             default:
                 System.out.println("Invalid choice");
