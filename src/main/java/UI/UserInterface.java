@@ -48,7 +48,7 @@ public class UserInterface {
             //art menu TBD
             Art.displayQuestMenu();
 
-            System.out.println("1. Forge your loadout: (add sandwich)");
+            System.out.println("1.) Forge your loadout: (add sandwich)");
             System.out.println("2.) Brew potions (add drinks)");
             System.out.println("3.) Purchase Rations (add chips)");
             System.out.println("4.) Start journey (checkout");
@@ -85,10 +85,13 @@ public class UserInterface {
     public void forgeLoadout(){
         System.out.println("\nForge Adventurer Loadout (sandwich)");
         System.out.println("tbd.....");
+        //sandwich characteristics
         BreadType bread = selectBread();
         SandwichSize size = selectSize();
         boolean toasted = selectToasted();
+        //creating sandwich
         Sandwich sandwich = new Sandwich(bread, size, toasted);
+        //customizing
         currentOrder.addItem(sandwich);
         System.out.println("\nLoadout added to Quest!!");
     }
@@ -144,41 +147,27 @@ public class UserInterface {
         boolean addToppings = true;
 
         while(addToppings){
-            System.out.println("Rare Enhancements" +
-                    "\n1.) Dragon's Heart" +
-                    "\n2.) Smoked Boar" +
-                    "\n3.) Phoenix Beak" +
-                    "\n4.) Rabbit's Tail"+
-                    "\n5.) Griffin Claw"+
-                    "\n6.) Raven Feathers");
-            System.out.println("Choose your rare enhancements: ");
+            System.out.println("===Topping Menu===" +
+                    "\n1.) Rare Enhancements" +
+                    "\n2.) Arcane Infusions " +
+                    "\n3.) Traits" +
+                    "\n4.) Enhancements"+
+                    "\n5.) Finish");
+            System.out.println("Where would you like to begin: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice){
                 case 1:
-                    sandwich.addToppings(new Toppings("Dragon's Heart",
-                            ToppingType.MEAT,false
-                    ));
+                    addMeats(sandwich);
                     break;
                 case 2:
-                    sandwich.addToppings(new Toppings("Smoked Boar",
-                            ToppingType.MEAT,false));
+                    addCheese(sandwich);
                     break;
                 case 3:
-                    sandwich.addToppings(new Toppings("Phoenix Beak",
-                            ToppingType.MEAT,false));
+                    addRegularToppings(sandwich);
                     break;
                 case 4:
-                    sandwich.addToppings(new Toppings("Rabbit's Tail",
-                            ToppingType.MEAT,false));
-                    break;
-                case 5:
-                    sandwich.addToppings(new Toppings("Griffin Claw",
-                            ToppingType.MEAT,false));
-                    break;
-                case 6:
-                    sandwich.addToppings(new Toppings("Raven Feathers",
-                            ToppingType.MEAT,false));
+                    addSauces(sandwich);
                     break;
                 case 0:
                     addToppings=false;
@@ -186,7 +175,164 @@ public class UserInterface {
                 default:
                     System.out.println("Invalid choice");
             }
+        }
+    }
 
+    private void addMeats(Sandwich sandwich) {
+        boolean addToppings = true;
+
+        while (addToppings) {
+            System.out.println("Meat Menu" +
+                    "\n1.) Rare Enhancements" +
+                    "\n2.) Smoked Boar" +
+                    "\n3.) Phoenix Beak" +
+                    "\n4.) Rabbit's Tail" +
+                    "\n5.) Griffin Claw" +
+                    "\n6.) Raven Feathers");
+            System.out.println("Choose your rare enhancements: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice) {
+                case 1:
+                    sandwich.addToppings(new Toppings("Dragon's Heart",
+                            ToppingType.MEAT, false
+                    ));
+                    break;
+                case 2:
+                    sandwich.addToppings(new Toppings("Smoked Boar",
+                            ToppingType.MEAT, false));
+                    break;
+                case 3:
+                    sandwich.addToppings(new Toppings("Phoenix Beak",
+                            ToppingType.MEAT, false));
+                    break;
+                case 4:
+                    sandwich.addToppings(new Toppings("Rabbit's Tail",
+                            ToppingType.MEAT, false));
+                    break;
+                case 5:
+                    sandwich.addToppings(new Toppings("Griffin Claw",
+                            ToppingType.MEAT, false));
+                    break;
+                case 6:
+                    sandwich.addToppings(new Toppings("Raven Feathers",
+                            ToppingType.MEAT, false));
+                    break;
+                case 0:
+                    addToppings = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
+        }
+    }
+    private void addCheese(Sandwich sandwich){
+        System.out.println("===Cheese Menu==" +
+                "\n1.) Flame, Grant Me Strength" +
+                "\2.) Golden Vow" +
+                "\n3.) Blessings of the Erdtree" +
+                "\n4.) Black Flame's Protection");
+        System.out.println("Choose your incantation carefully. As this will be your main source" +
+                "of magic protection");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        switch (choice){
+            case 1:
+                sandwich.addToppings(new Toppings("Flame, Grant Me Strength",
+                        ToppingType.CHEESE, false));
+                break;
+            case 2:
+                sandwich.addToppings(new Toppings("Golden Vow",
+                        ToppingType.CHEESE, false));
+                break;
+            case 3:
+                sandwich.addToppings(new Toppings("Blessing of the Erdtree",
+                        ToppingType.CHEESE, false));
+            case 4:
+                sandwich.addToppings(new Toppings("Black Flame's Protection",
+                        ToppingType.CHEESE, false));
+            default:
+                return;
+        }
+    }
+    public void addRegularToppings(Sandwich sandwich){
+        System.out.println("==== Reg Toppings" +
+                "\n1.) Lettuce" +
+                "\n2.) Peppers" +
+                "\n3.) Onions" +
+                "\n4.) Tomatoes" +
+                "\5.) Jalapenos" +
+                "\6.) Cucumbers" +
+                "\n7.) Pickles" +
+                "\n8.) Guacamole" +
+                "\n9.) Mushrooms");
+        System.out.println("Choose your ....");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        switch (choice){
+            case 1:
+                sandwich.addToppings(new Toppings("Lettucs",
+                        ToppingType.OTHER_TOPPINGS, false));
+            case 2:
+                sandwich.addToppings(new Toppings("Peppers",
+                        ToppingType.OTHER_TOPPINGS, false));
+            case 3:
+                sandwich.addToppings(new Toppings("Onions",
+                        ToppingType.OTHER_TOPPINGS, false));
+            case 4:
+                sandwich.addToppings(new Toppings("Tomatoes",
+                        ToppingType.OTHER_TOPPINGS, false));
+            case 5:
+                sandwich.addToppings(new Toppings("Jalapenos",
+                        ToppingType.OTHER_TOPPINGS, false));
+            case 6:
+                sandwich.addToppings(new Toppings("Cucumbers",
+                        ToppingType.OTHER_TOPPINGS, false));
+            case 7:
+                sandwich.addToppings(new Toppings("Pickles",
+                        ToppingType.OTHER_TOPPINGS, false));
+            case 8:
+                sandwich.addToppings(new Toppings("Guacamole",
+                        ToppingType.OTHER_TOPPINGS, false));
+            case 9:
+                sandwich.addToppings(new Toppings("Mushrooms",
+                        ToppingType.OTHER_TOPPINGS, false));
+            default:
+                return;
+        }
+    }
+    public void addSauces(Sandwich sandwich){
+        System.out.println("===Sauces" +
+                "\n1.) Mayo" +
+                "\n2.) Mustard" +
+                "\n3.) Ketchup" +
+                "\n4.) Ranch" +
+                "\n5.) Thousand Island" +
+                "\n6.) Vinaigrette");
+        System.out.println("\nChoose your....");
+        int choice = scanner.nextInt();
+        scanner.nextInt();
+        switch(choice){
+            case 1:
+                sandwich.addToppings(new Toppings("Mayo",
+                        ToppingType.SAUCE, false));
+            case 2:
+                sandwich.addToppings(new Toppings("Mustard",
+                        ToppingType.SAUCE, false));
+            case 3:
+                sandwich.addToppings(new Toppings("Ketchup",
+                        ToppingType.SAUCE, false));
+            case 4:
+                sandwich.addToppings(new Toppings("Ranch",
+                        ToppingType.SAUCE, false));
+            case 5:
+                sandwich.addToppings(new Toppings("Thousand Island",
+                        ToppingType.SAUCE, false));
+            case 6:
+                sandwich.addToppings(new Toppings("Vinaigrette",
+                        ToppingType.SAUCE, false));
+            default:
+                return;
         }
     }
 }
