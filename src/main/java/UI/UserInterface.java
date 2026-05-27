@@ -290,38 +290,48 @@ public class UserInterface {
                 case 1:
                     sandwich.addToppings(new Toppings("Lettuce",
                             ToppingType.OTHER_TOPPINGS, false));
+                    System.out.println("Topping added");
                     break;
                 case 2:
                     sandwich.addToppings(new Toppings("Peppers",
                             ToppingType.OTHER_TOPPINGS, false));
+                    System.out.println("\nTopping added");
                     break;
                 case 3:
                     sandwich.addToppings(new Toppings("Onions",
                             ToppingType.OTHER_TOPPINGS, false));
+                    System.out.println("\nTopping added");
                     break;
                 case 4:
                     sandwich.addToppings(new Toppings("Tomatoes",
                             ToppingType.OTHER_TOPPINGS, false));
+                    System.out.println("\nTopping added");
                     break;
                 case 5:
                     sandwich.addToppings(new Toppings("Jalapenos",
                             ToppingType.OTHER_TOPPINGS, false));
+                    System.out.println("\nTopping added");
+
                     break;
                 case 6:
                     sandwich.addToppings(new Toppings("Cucumbers",
                             ToppingType.OTHER_TOPPINGS, false));
+                    System.out.println("\nTopping added");
                     break;
                 case 7:
                     sandwich.addToppings(new Toppings("Pickles",
                             ToppingType.OTHER_TOPPINGS, false));
+                    System.out.println("\nTopping added");
                     break;
                 case 8:
                     sandwich.addToppings(new Toppings("Guacamole",
                             ToppingType.OTHER_TOPPINGS, false));
+                    System.out.println("\nTopping added");
                     break;
                 case 9:
                     sandwich.addToppings(new Toppings("Mushrooms",
                             ToppingType.OTHER_TOPPINGS, false));
+                    System.out.println("\nTopping added");
                     break;
                 case 0:
                     moreToppings=false;
@@ -349,32 +359,38 @@ public class UserInterface {
                 case 1:
                     sandwich.addToppings(new Toppings("Mayo",
                             ToppingType.SAUCE, false));
+                    System.out.println("\n Sauce added");
                     break;
                 case 2:
                     sandwich.addToppings(new Toppings("Mustard",
                             ToppingType.SAUCE, false));
+                    System.out.println("\n Sauce added");
                     break;
                 case 3:
                     sandwich.addToppings(new Toppings("Ketchup",
                             ToppingType.SAUCE, false));
+                    System.out.println("\n Sauce added");
                     break;
                 case 4:
                     sandwich.addToppings(new Toppings("Ranch",
                             ToppingType.SAUCE, false));
+                    System.out.println("\n Sauce added");
                     break;
                 case 5:
                     sandwich.addToppings(new Toppings("Thousand Island",
                             ToppingType.SAUCE, false));
+                    System.out.println("\n Sauce added");
                     break;
                 case 6:
                     sandwich.addToppings(new Toppings("Vinaigrette",
                             ToppingType.SAUCE, false));
+                    System.out.println("\n Sauce added");
                     break;
                 case 0:
                     moreSauce=false;
                     break;
                 default:
-                    System.out.println("\nSauce added!");
+                    System.out.println("\nInvalid Choice");
             }
         }
     }
