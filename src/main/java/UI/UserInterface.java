@@ -3,11 +3,8 @@ package UI;
 import enums.BreadType;
 import enums.SandwichSize;
 import enums.ToppingType;
-import org.example.Chips;
-import org.example.Order;
-import org.example.Sandwich;
-import org.example.Toppings;
-import org.w3c.dom.ls.LSOutput;
+import org.example.*;
+
 
 import java.util.Scanner;
 
@@ -15,7 +12,10 @@ public class UserInterface {
     //SCANNER
     private Scanner scanner = new Scanner(System.in);
     private Order currentOrder;
-    //userInput(s)
+    private ReceiptManager receiptManager;
+    public UserInterface(){
+        receiptManager = new ReceiptManager();
+    }
     //menus
     public void displayHomeScreen(){
         boolean running = true;
@@ -154,7 +154,7 @@ public class UserInterface {
                     "\n2.) Arcane Infusions " +
                     "\n3.) Traits" +
                     "\n4.) Enhancements"+
-                    "\n5.) Finish");
+                    "\n0.) Finish");
             System.out.println("Where would you like to begin: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -275,30 +275,39 @@ public class UserInterface {
             case 1:
                 sandwich.addToppings(new Toppings("Lettucs",
                         ToppingType.OTHER_TOPPINGS, false));
+                break;
             case 2:
                 sandwich.addToppings(new Toppings("Peppers",
                         ToppingType.OTHER_TOPPINGS, false));
+                break;
             case 3:
                 sandwich.addToppings(new Toppings("Onions",
                         ToppingType.OTHER_TOPPINGS, false));
+                break;
             case 4:
                 sandwich.addToppings(new Toppings("Tomatoes",
                         ToppingType.OTHER_TOPPINGS, false));
+                break;
             case 5:
                 sandwich.addToppings(new Toppings("Jalapenos",
                         ToppingType.OTHER_TOPPINGS, false));
+                break;
             case 6:
                 sandwich.addToppings(new Toppings("Cucumbers",
                         ToppingType.OTHER_TOPPINGS, false));
+                break;
             case 7:
                 sandwich.addToppings(new Toppings("Pickles",
                         ToppingType.OTHER_TOPPINGS, false));
+                break;
             case 8:
                 sandwich.addToppings(new Toppings("Guacamole",
                         ToppingType.OTHER_TOPPINGS, false));
+                break;
             case 9:
                 sandwich.addToppings(new Toppings("Mushrooms",
                         ToppingType.OTHER_TOPPINGS, false));
+                break;
             default:
                 return;
         }
@@ -361,7 +370,6 @@ public class UserInterface {
                 System.out.println("Invalid choice");
                 return;
 
-
                 //then maybe a question following about an AOW or an affinity
         }
     }
@@ -373,4 +381,5 @@ public class UserInterface {
         currentOrder.addItem(chip);
         System.out.println("Rations successfully added");
     }
+
 }
