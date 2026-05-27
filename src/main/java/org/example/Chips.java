@@ -18,7 +18,8 @@ public class Chips extends MenuItems{
 
     @Override
     public double getPrice() {
-        return 0;
+        //only the one
+        return 1.50;
     }
     @Override
     public String toString(){

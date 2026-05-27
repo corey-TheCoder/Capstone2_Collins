@@ -3,6 +3,7 @@ package UI;
 import enums.BreadType;
 import enums.SandwichSize;
 import enums.ToppingType;
+import org.example.Chips;
 import org.example.Order;
 import org.example.Sandwich;
 import org.example.Toppings;
@@ -336,6 +337,7 @@ public class UserInterface {
                 return;
         }
     }
+    //potions
     public void addDrink(){
         System.out.println("===Brew Potion==" +
                 "\n1.) Small" +
@@ -362,5 +364,13 @@ public class UserInterface {
 
                 //then maybe a question following about an AOW or an affinity
         }
+    }
+    //rations
+    public void addChips(){
+        System.out.println("\nChoose ration type");
+        String rationType = scanner.nextLine();
+        Chips chip = new Chips(rationType);
+        currentOrder.addItem(chip);
+        System.out.println("Rations successfully added");
     }
 }
