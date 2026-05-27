@@ -92,6 +92,7 @@ public class UserInterface {
         //creating sandwich
         Sandwich sandwich = new Sandwich(bread, size, toasted);
         //customizing
+        selectToppings(sandwich);
         currentOrder.addItem(sandwich);
         System.out.println("\nLoadout added to Quest!!");
     }
