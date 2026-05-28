@@ -28,9 +28,7 @@ public class UserInterface {
             System.out.println("1.) Assemble New Adventurer");
             System.out.println("0.) Leave Hall");
             System.out.println("\nWhat will it be?");
-            int choice = scanner.nextInt();
-            //int be acting up
-            scanner.nextLine();
+            int choice = getIntInput();
             switch (choice) {
                 case 1:
                     currentOrder = new Order();
@@ -57,8 +55,7 @@ public class UserInterface {
             System.out.println("3.) Pack Rations");
             System.out.println("4.) Begin Journey");
             System.out.println("0.) Abandon Journey");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            int choice = getIntInput();
             switch (choice) {
                 case 1:
                     //add sandwich
@@ -75,7 +72,7 @@ public class UserInterface {
                 case 4:
                     //checkout
                     startJourney();
-                    break;
+                    return;
                 case 0:
                     System.out.println("\nDestiny has yet to call this one..");
                     return;
@@ -108,8 +105,7 @@ public class UserInterface {
                 "\n2.) Medium" +
                 "\n3.) Large");
         System.out.println("Choose size: ...");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+        int choice = getIntInput();
         DrinkSize size;
         switch (choice) {
             case 1:
@@ -137,8 +133,7 @@ public class UserInterface {
                 "\n1.) Chips" +
                 "\n2.) Pretzels" +
                 "\n3.) Nachos");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+        int choice = getIntInput();
         String type;
         switch (choice) {
             case 1:
@@ -170,8 +165,7 @@ public class UserInterface {
 
         System.out.println("\n1.) Confirm Quest");
         System.out.println("2.) Cancel");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+        int choice = getIntInput();
         switch (choice) {
             case 1:
                 receiptManager.saveReceipt(currentOrder);
@@ -181,6 +175,7 @@ public class UserInterface {
                 return;
             case 2:
                 currentOrder.clearOrder();
+                currentOrder = new Order();
                 System.out.println("Quest Cancelled..");
                 System.out.println("Returning to Tavern...");
                 return;
@@ -196,9 +191,7 @@ public class UserInterface {
             System.out.println((i+1) + ". " + archetypes[i]);
         }
         System.out.println("\nChoice: ");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
-
+        int choice = getIntInput();
         return archetypes[choice - 1];
     }
     //return difficulty
@@ -209,9 +202,7 @@ public class UserInterface {
             System.out.println((i + 1) + ". " + rank[i]);
         }
         System.out.println("\nChoice: ");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
-
+        int choice = getIntInput();
         return rank[choice -1];
     }
     //Forged in flame
@@ -232,8 +223,7 @@ public class UserInterface {
                     "\n4.) Enhancements(Sauces)"+
                     "\n0.) Back");
             System.out.println("Where would you like to begin: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            int choice = getIntInput();
             switch (choice){
                 case 1:
                     addMeats(sandwich);
@@ -266,8 +256,7 @@ public class UserInterface {
                     "\n6.) Omnitrix" +
                     "\n0. Back");
             System.out.println("Choose your primary weapon: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            int choice = getIntInput();
             switch (choice) {
                 case 1:
                     sandwich.addToppings(new Toppings("Dragon's Slayer",
@@ -316,8 +305,7 @@ public class UserInterface {
                 "\n4.) Black Flame's Protection");
         System.out.println("Choose your incantation carefully. As this will be your main source " +
                 "of magic protection");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+        int choice = getIntInput();
         switch (choice){
             case 1:
                 sandwich.addToppings(new Toppings("Flame, Grant Me Strength",
@@ -346,7 +334,7 @@ public class UserInterface {
     public void addRegularToppings(Sandwich sandwich){
         boolean moreToppings = true;
         while (moreToppings) {
-            System.out.println("\n==== TRAITS ====" +
+            System.out.println("\n==== Abilities ====" +
                     "\n1.) Black Flash" +
                     "\n2.) Titan Shifting" +
                     "\n3.) Flight" +
@@ -358,8 +346,7 @@ public class UserInterface {
                     "\n9.) Amateratsu" +
                     "\n0.) Back");
             System.out.println("Choose your ....");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            int choice = getIntInput();
             switch (choice) {
                 case 1:
                     sandwich.addToppings(new Toppings("Black Flash",
@@ -418,48 +405,46 @@ public class UserInterface {
     public void addSauces(Sandwich sandwich) {
         boolean moreSauce=true;
         while(moreSauce) {
-            System.out.println("\n===Sauces" +
-                    "\n1.) Mayo" +
-                    "\n2.) Mustard" +
-                    "\n3.) Ketchup" +
-                    "\n4.) Ranch" +
-                    "\n5.) Thousand Island" +
-                    "\n6.) Vinaigrette" +
+            System.out.println("\n===TRAITS" +
+                    "\n1.) Healing Aura" +
+                    "\n2.) Beserker's Rage" +
+                    "\n3.) Blood Pact" +
+                    "\n4.) Divine Protection" +
+                    "\n5.) Phantom Step" +
+                    "\n6.) Future Sight" +
                     "\n0.) Back");
             System.out.println("\nChoose your....");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            int choice = getIntInput();
             switch (choice) {
                 case 1:
-                    sandwich.addToppings(new Toppings("Mayo",
+                    sandwich.addToppings(new Toppings("Healing Aura",
                             ToppingType.SAUCE, false));
-                    System.out.println("\n Sauce added");
+                    System.out.println("\nTrait added");
                     break;
                 case 2:
-                    sandwich.addToppings(new Toppings("Mustard",
+                    sandwich.addToppings(new Toppings("Beserker's Rage",
                             ToppingType.SAUCE, false));
-                    System.out.println("\n Sauce added");
+                    System.out.println("\nTrait added");
                     break;
                 case 3:
-                    sandwich.addToppings(new Toppings("Ketchup",
+                    sandwich.addToppings(new Toppings("Blood Pact",
                             ToppingType.SAUCE, false));
-                    System.out.println("\n Sauce added");
+                    System.out.println("\nTrait added");
                     break;
                 case 4:
-                    sandwich.addToppings(new Toppings("Ranch",
+                    sandwich.addToppings(new Toppings("Divine Protection",
                             ToppingType.SAUCE, false));
-                    System.out.println("\n Sauce added");
+                    System.out.println("\nTrait added");
                     break;
                 case 5:
-                    sandwich.addToppings(new Toppings("Thousand Island",
+                    sandwich.addToppings(new Toppings("Phantom Step",
                             ToppingType.SAUCE, false));
-                    System.out.println("\n Sauce added");
+                    System.out.println("\nTrait added");
                     break;
                 case 6:
-                    sandwich.addToppings(new Toppings("Vinaigrette",
+                    sandwich.addToppings(new Toppings("Future Sight",
                             ToppingType.SAUCE, false));
-                    System.out.println("\n Sauce added");
-                    break;
+                    System.out.println("\nTrait added");;
                 case 0:
                     moreSauce=false;
                     break;
@@ -467,6 +452,16 @@ public class UserInterface {
                     System.out.println("\nInvalid Choice");
             }
         }
+    }
+    //method for int input handling
+    private int getIntInput(){
+        while (!scanner.hasNextInt()){
+            System.out.println("\nInvalid input!");
+            scanner.nextLine();
+        }
+        int input = scanner.nextInt();
+        scanner.nextLine();
+        return input;
     }
 
 }
