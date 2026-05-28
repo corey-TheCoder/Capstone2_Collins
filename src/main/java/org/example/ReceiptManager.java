@@ -28,6 +28,7 @@ public class ReceiptManager {
                     ==========================
                     
                     """);
+            //print items formatting
             for (MenuItems item : order.getItems()) {
                 writer.write(item.toString() + "\n");
                 writer.write(String.format(
@@ -35,6 +36,7 @@ public class ReceiptManager {
                         item.getPrice()
                 ));
             }
+            //total formatting
             writer.write(String.format(
                     "TOTAL: $%.2f",
                     order.getOrderTotal()

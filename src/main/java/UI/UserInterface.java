@@ -454,6 +454,7 @@ public class UserInterface {
         switch (choice){
             case 1:
                 receiptManager.saveReceipt(currentOrder);
+                currentOrder = new Order();
                 System.out.println("Quest Confirmed!");
                 break;
             case 2:
