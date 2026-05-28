@@ -437,4 +437,32 @@ public class UserInterface {
             }
         }
     }
+    public void startCheckout(){
+        System.out.println("\n=== Order Summary ===\n");
+        //every item in current order
+        for (MenuItems item : currentOrder.getItems()){
+            System.out.println(item);
+            System.out.println("===================");
+        }
+        double total = currentOrder.getOrderTotal();
+        System.out.println("\nTotal: $" + total);
+
+        System.out.println("\n1.) Confirm Quest");
+        System.out.println("2.) Cancel");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        switch (choice){
+            case 1:
+                receiptManager.saveReceipt(currentOrder);
+                System.out.println("Quest Confirmed!");
+                break;
+            case 2:
+                currentOrder.clearOrder();
+                System.out.println("Quest Cancelled..");
+                break;
+            default:
+                System.out.println("Invalid choice");
+        }
+    }
+
 }
