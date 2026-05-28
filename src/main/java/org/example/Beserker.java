@@ -12,6 +12,15 @@ public class Beserker extends Sandwich{
                 true);
         addToppings(new Toppings("Beserker Axe", ToppingType.MEAT,false));
         addToppings(new Toppings("Fire Affinity", ToppingType.OTHER_TOPPINGS,false));
+        addToppings(new Toppings("Flame, Grant Me Strength", ToppingType.CHEESE, false));
+        addToppings(new Toppings("Black Flash", ToppingType.OTHER_TOPPINGS,false));
+    }
+    public String toString(){
+        return """
+                ========================
+                      BESERKER
+                =======================
+                """ + super.toString();
     }
 
 }
