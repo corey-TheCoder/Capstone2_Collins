@@ -5,11 +5,11 @@ import enums.DrinkSize;
 
 public class Drink extends MenuItems {
     //potion
-    private String flavor;
+    private Affinity affinity;
     private DrinkSize size;
 
     public Drink(Affinity affinity, DrinkSize size) {
-        this.flavor = flavor;
+        this.affinity = affinity;
         this.size = size;
     }
 
@@ -21,7 +21,7 @@ public class Drink extends MenuItems {
 
     @Override
     public String toString() {
-        return size + " " + flavor + " Potion";
+        return size + " " + affinity + " Potion";
     }
 }
 

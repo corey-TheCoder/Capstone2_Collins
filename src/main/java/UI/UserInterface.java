@@ -168,7 +168,7 @@ public class UserInterface {
                 type = "Rumble Ball";
                 break;
             case 2:
-                type = "Devil Fruit(Random)";
+                type = "Devil Fruit";
                 break;
             case 3:
                 type = "3 of Sukana's Fingers";

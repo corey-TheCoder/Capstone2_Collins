@@ -37,16 +37,15 @@ public class ReceiptManager {
                 ));
             }
             //total formatting
+            writer.write("------------------\n");
             writer.write(String.format(
                     "TOTAL: $%.2f",
                     order.getOrderTotal()
             ));
-            writer.write("------------------\n");
             writer.close();
             System.out.println("Receipt saved successfully!");
         } catch (IOException e) {
             System.out.println("Error saving receipt.");
-            e.printStackTrace();
         }
     }
 }
