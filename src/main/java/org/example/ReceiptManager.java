@@ -45,8 +45,8 @@ public class ReceiptManager {
             writer.close();
             System.out.println("Receipt saved successfully!");
         } catch (IOException e) {
-
             System.out.println("Error saving receipt.");
+            e.printStackTrace();
         }
     }
 }

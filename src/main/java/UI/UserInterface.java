@@ -79,6 +79,7 @@ public class UserInterface {
                     break;
                 case 0:
                     System.out.println("\nDestiny has yet to call this one..");
+                    ordering=false;
                     return;
                 default:
                     //input error
@@ -157,6 +158,8 @@ public class UserInterface {
                 System.out.println("Invalid choice");
                 return;
         }
+        Chips chips = new Chips(type);
+        currentOrder.addItem(chips);
         System.out.println("\nRations successfully added!");
     }
 
@@ -179,11 +182,13 @@ public class UserInterface {
                 receiptManager.saveReceipt(currentOrder);
                 currentOrder = new Order();
                 System.out.println("Quest Confirmed!");
-                break;
+                System.out.println("Returning to Tavern...");
+                return;
             case 2:
                 currentOrder.clearOrder();
                 System.out.println("Quest Cancelled..");
-                break;
+                System.out.println("Returning to Tavern...");
+                return;
             default:
                 System.out.println("Invalid choice");
         }
@@ -263,7 +268,7 @@ public class UserInterface {
                     "\n1.) Dragon's Heart (Steak)" +
                     "\n2.) Smoked Boar (Ham)" +
                     "\n3.) Phoenix Beak(Salami)" +
-                    "\n4.) Rabbit's Tail(Roast Beef" +
+                    "\n4.) Rabbit's Tail(Roast Beef)" +
                     "\n5.) Griffin Claw(Chicken)" +
                     "\n6.) Raven Feathers(Bacon)" +
                     "\n0. Back");
@@ -420,7 +425,7 @@ public class UserInterface {
     public void addSauces(Sandwich sandwich) {
         boolean moreSauce=true;
         while(moreSauce) {
-            System.out.println("===Sauces" +
+            System.out.println("\n===Sauces" +
                     "\n1.) Mayo" +
                     "\n2.) Mustard" +
                     "\n3.) Ketchup" +
