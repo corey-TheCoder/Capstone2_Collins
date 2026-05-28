@@ -24,9 +24,9 @@ public class UserInterface {
         boolean running = true;
         while (running) {
             //show menu
-            System.out.println("\nCharacter builder");
-            System.out.println("1.) Start a new Quest!");
-            System.out.println("0.) Leave Tavern (Exit)");
+            System.out.println("\nGuild Hall");
+            System.out.println("1.) Assemble New Adventurer");
+            System.out.println("0.) Leave Hall");
             System.out.println("\nWhat will it be?");
             int choice = scanner.nextInt();
             //int be acting up
@@ -52,12 +52,11 @@ public class UserInterface {
             //art menu TBD
             Art.displayQuestMenu();
 
-            System.out.println("1.) Forge your loadout: (add sandwich)");
-            System.out.println("2.) Brew potions (add drinks)");
-            System.out.println("3.) Purchase Rations (add chips)");
-            System.out.println("4.) Start journey (checkout)");
-            System.out.println("0.) Abandon destiny (cancel order)");
-            System.out.println("What will it be?");
+            System.out.println("1.) Forge Character");
+            System.out.println("2.) Brew potions");
+            System.out.println("3.) Pack Rations");
+            System.out.println("4.) Begin Journey");
+            System.out.println("0.) Abandon Journey");
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
@@ -79,7 +78,6 @@ public class UserInterface {
                     break;
                 case 0:
                     System.out.println("\nDestiny has yet to call this one..");
-                    ordering=false;
                     return;
                 default:
                     //input error
@@ -103,7 +101,6 @@ public class UserInterface {
         currentOrder.addItem(sandwich);
         System.out.println("\nLoadout added to Quest!!");
     }
-
     //drinks
     public void brewPotions() {
         System.out.println("===Brew Potion==" +
@@ -134,7 +131,6 @@ public class UserInterface {
         currentOrder.addItem(drink);
         System.out.println("\nPotion added!");
     }
-
     //chips
     public void purchaseRations() {
         System.out.println("\nChoose ration type " +
@@ -162,7 +158,6 @@ public class UserInterface {
         currentOrder.addItem(chips);
         System.out.println("\nRations successfully added!");
     }
-
     public void startJourney() {
         System.out.println("\n=== Order Summary ===\n");
         //every item in current order
@@ -193,8 +188,6 @@ public class UserInterface {
                 System.out.println("Invalid choice");
         }
     }
-
-
     //return breadType
     private BreadType selectBread(){
         System.out.println("\nChoose your class build!");
@@ -264,51 +257,51 @@ public class UserInterface {
     }
 
     private void addMeats(Sandwich sandwich) {
-            System.out.println("===Meat Menu" +
-                    "\n1.) Dragon's Heart (Steak)" +
-                    "\n2.) Smoked Boar (Ham)" +
-                    "\n3.) Phoenix Beak(Salami)" +
-                    "\n4.) Rabbit's Tail(Roast Beef)" +
-                    "\n5.) Griffin Claw(Chicken)" +
-                    "\n6.) Raven Feathers(Bacon)" +
+            System.out.println("===WEAPONS" +
+                    "\n1.) Dragon's Slayer" +
+                    "\n2.) Iron Longsword" +
+                    "\n3.) Twin Daggers" +
+                    "\n4.) Elven Bow" +
+                    "\n5.) Beserker Axe" +
+                    "\n6.) Omnitrix" +
                     "\n0. Back");
-            System.out.println("Choose your rare enhancements: ");
+            System.out.println("Choose your primary weapon: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
                 case 1:
-                    sandwich.addToppings(new Toppings("Dragon's Heart",
+                    sandwich.addToppings(new Toppings("Dragon's Slayer",
                             ToppingType.MEAT, false
                     ));
-                    System.out.println("Rare Enhancement received!");
+                    System.out.println("\nWeapon added!");
                     break;
                 case 2:
-                    sandwich.addToppings(new Toppings("Smoked Boar",
+                    sandwich.addToppings(new Toppings("Iron Longsword",
                             ToppingType.MEAT, false));
-                    System.out.println("Rare Enhancement received");
+                    System.out.println("\nWeapon added!");
 
                     break;
                 case 3:
-                    sandwich.addToppings(new Toppings("Phoenix Beak",
+                    sandwich.addToppings(new Toppings("Twin Daggers",
                             ToppingType.MEAT, false));
-                    System.out.println("Rare Enhancement received");
+                    System.out.println("\nWeapon added!");
 
                     break;
                 case 4:
-                    sandwich.addToppings(new Toppings("Rabbit's Tail",
+                    sandwich.addToppings(new Toppings("Elven Bow",
                             ToppingType.MEAT, false));
-                    System.out.println("Rare Enhancement received");
+                    System.out.println("\nWeapon added!");
                     break;
                 case 5:
-                    sandwich.addToppings(new Toppings("Griffin Claw",
+                    sandwich.addToppings(new Toppings("Beserker Axe",
                             ToppingType.MEAT, false));
-                    System.out.println("Rare Enhancement received");
+                    System.out.println("\nWeapon added!");
 
                     break;
                 case 6:
-                    sandwich.addToppings(new Toppings("Raven Feathers",
+                    sandwich.addToppings(new Toppings("Great Hammer",
                             ToppingType.MEAT, false));
-                    System.out.println("\nRare Enhancement received");
+                    System.out.println("\nWeapon added!");
                     break;
                 default:
                     System.out.println("Returning to Toppings Menu");;
@@ -316,7 +309,7 @@ public class UserInterface {
         }
 
     private void addCheese(Sandwich sandwich){
-        System.out.println("\n===Cheese Menu==" +
+        System.out.println("\n===SPELLS==" +
                 "\n1.) Flame, Grant Me Strength" +
                 "\n2.) Golden Vow" +
                 "\n3.) Blessings of the Erdtree" +
@@ -353,66 +346,66 @@ public class UserInterface {
     public void addRegularToppings(Sandwich sandwich){
         boolean moreToppings = true;
         while (moreToppings) {
-            System.out.println("\n==== Reg Toppings ====" +
-                    "\n1.) Lettuce" +
-                    "\n2.) Peppers" +
-                    "\n3.) Onions" +
-                    "\n4.) Tomatoes" +
-                    "\n5.) Jalapenos" +
-                    "\n6.) Cucumbers" +
-                    "\n7.) Pickles" +
-                    "\n8.) Guacamole" +
-                    "\n9.) Mushrooms" +
+            System.out.println("\n==== TRAITS ====" +
+                    "\n1.) Black Flash" +
+                    "\n2.) Titan Shifting" +
+                    "\n3.) Flight" +
+                    "\n4.) Fire Affinity" +
+                    "\n5.) 10 Shadows Technique" +
+                    "\n6.) Instant Regeneration" +
+                    "\n7.) Shadow Clones" +
+                    "\n8.) Infinity" +
+                    "\n9.) Amateratsu" +
                     "\n0.) Back");
             System.out.println("Choose your ....");
             int choice = scanner.nextInt();
             scanner.nextLine();
             switch (choice) {
                 case 1:
-                    sandwich.addToppings(new Toppings("Lettuce",
+                    sandwich.addToppings(new Toppings("Black Flash",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTopping added!");
+                    System.out.println("\nTrait added");
                     break;
                 case 2:
-                    sandwich.addToppings(new Toppings("Peppers",
+                    sandwich.addToppings(new Toppings("Titan Shifting",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTopping added");
+                    System.out.println("\nTrait added");
                     break;
                 case 3:
-                    sandwich.addToppings(new Toppings("Onions",
+                    sandwich.addToppings(new Toppings("Flight",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTopping added");
+                    System.out.println("\nTrait added");
                     break;
                 case 4:
-                    sandwich.addToppings(new Toppings("Tomatoes",
+                    sandwich.addToppings(new Toppings("Fire Affinity",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTopping added");
+                    System.out.println("\nTrait added");
                     break;
                 case 5:
-                    sandwich.addToppings(new Toppings("Jalapenos",
+                    sandwich.addToppings(new Toppings("10 Shadows Technique",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTopping added");
+                    System.out.println("\nTrait added");
 
                     break;
                 case 6:
-                    sandwich.addToppings(new Toppings("Cucumbers",
+                    sandwich.addToppings(new Toppings("Instant Regeneration",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTopping added");
+                    System.out.println("\nTrait added");
                     break;
                 case 7:
-                    sandwich.addToppings(new Toppings("Pickles",
+                    sandwich.addToppings(new Toppings("Shadow Clones",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTopping added");
+                    System.out.println("\nTrait added");
                     break;
                 case 8:
-                    sandwich.addToppings(new Toppings("Guacamole",
+                    sandwich.addToppings(new Toppings("Infinity",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTopping added");
+                    System.out.println("\nTrait added");
                     break;
                 case 9:
-                    sandwich.addToppings(new Toppings("Mushrooms",
+                    sandwich.addToppings(new Toppings("Amateratsu",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTopping added");
+                    System.out.println("\nTrait added");
                     break;
                 case 0:
                     moreToppings=false;
