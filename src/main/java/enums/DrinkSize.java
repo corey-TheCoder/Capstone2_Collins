@@ -3,9 +3,9 @@ package enums;
 import org.example.Drink;
 
 public enum DrinkSize {
-    SMALL(2.00),
-    MEDIUM(2.50),
-    LARGE(3.00);
+    Minor(2.00),
+    Greater(2.50),
+    Legendary(3.00);
 
     private final double price;
 

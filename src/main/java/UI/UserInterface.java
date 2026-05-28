@@ -1,9 +1,6 @@
 package UI;
 
-import enums.BreadType;
-import enums.DrinkSize;
-import enums.SandwichSize;
-import enums.ToppingType;
+import enums.*;
 import org.example.*;
 
 
@@ -101,49 +98,80 @@ public class UserInterface {
     //drinks
     public void brewPotions() {
         System.out.println("===Brew Potion==" +
-                "\n1.) Small" +
-                "\n2.) Medium" +
-                "\n3.) Large");
-        System.out.println("Choose size: ...");
+                "\n1.) Minor" +
+                "\n2.) Greater" +
+                "\n3.) Legendary");
+        System.out.println("Choose size: ");
         int choice = getIntInput();
         DrinkSize size;
         switch (choice) {
             case 1:
-                size = DrinkSize.SMALL;
+                size = DrinkSize.Minor;
                 break;
             case 2:
-                size = DrinkSize.MEDIUM;
+                size = DrinkSize.Greater;
                 break;
             case 3:
-                size = DrinkSize.LARGE;
+                size = DrinkSize.Legendary;
                 break;
             default:
                 System.out.println("Invalid choice");
                 return;
         }
-        System.out.println("Choose potion affinity: ");
-        String flavor = scanner.nextLine();
-        Drink drink = new Drink(flavor, size);
+        //affinity
+        System.out.println("\nChoose potion affinity: ");
+        System.out.println("1.) Mana");
+        System.out.println("2.) Health");
+        System.out.println("3.) Stamina");
+        System.out.println("4.) Poison");
+        System.out.println("5.) Frost");
+        System.out.println("6.) Lightning");
+        int affinityChoice = getIntInput();
+        Affinity affinity;
+        switch (affinityChoice) {
+            case 1:
+                affinity = Affinity.Mana;
+                break;
+            case 2:
+                affinity = Affinity.Health;
+                break;
+            case 3:
+                affinity = Affinity.Stamina;
+                break;
+            case 4:
+                affinity = Affinity.Poison;
+                break;
+            case 5:
+                affinity = Affinity.Frost;
+                break;
+            case 6:
+                affinity = Affinity.Lightning;
+                break;
+            default:
+                System.out.println("Invalid affinity choice");
+                return;
+        }
+        Drink drink = new Drink(affinity, size);
         currentOrder.addItem(drink);
         System.out.println("\nPotion added!");
     }
     //chips
     public void purchaseRations() {
         System.out.println("\nChoose ration type " +
-                "\n1.) Chips" +
-                "\n2.) Pretzels" +
-                "\n3.) Nachos");
+                "\n1.) Rumble Ball" +
+                "\n2.) Devil Fruit(Random)" +
+                "\n3.) 3 of Sukana's Fingers");
         int choice = getIntInput();
         String type;
         switch (choice) {
             case 1:
-                type = "Chips";
+                type = "Rumble Ball";
                 break;
             case 2:
-                type = "Pretzel";
+                type = "Devil Fruit(Random)";
                 break;
             case 3:
-                type = "Nachos";
+                type = "3 of Sukana's Fingers";
                 break;
             default:
                 System.out.println("Invalid choice");
@@ -217,10 +245,10 @@ public class UserInterface {
 
         while(addToppings){
             System.out.println("\n===Main Menu===" +
-                    "\n1.) Rare Enhancements(Meat)" +
-                    "\n2.) Arcane Infusions(Cheese) " +
-                    "\n3.) Traits(Regular Toppings)" +
-                    "\n4.) Enhancements(Sauces)"+
+                    "\n1.) Weapons Cache" +
+                    "\n2.) Spells " +
+                    "\n3.) Abilities" +
+                    "\n4.) Traits"+
                     "\n0.) Back");
             System.out.println("Where would you like to begin: ");
             int choice = getIntInput();
@@ -288,12 +316,14 @@ public class UserInterface {
 
                     break;
                 case 6:
-                    sandwich.addToppings(new Toppings("Great Hammer",
+                    sandwich.addToppings(new Toppings("Omnitrix",
                             ToppingType.MEAT, false));
                     System.out.println("\nWeapon added!");
                     break;
+                case 0:
+                    return;
                 default:
-                    System.out.println("Returning to Toppings Menu");;
+                    System.out.println("Invalid choice");;
             }
         }
 
