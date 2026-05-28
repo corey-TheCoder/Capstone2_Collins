@@ -22,7 +22,7 @@ public class UserInterface {
         while (running) {
             //show menu
             System.out.println("\nGuild Hall");
-            System.out.println("1.) Assemble New Adventurer");
+            System.out.println("1.) Assemble a New Adventurer");
             System.out.println("0.) Leave Hall");
             System.out.println("\nWhat will it be?");
             int choice = getIntInput();
@@ -51,6 +51,7 @@ public class UserInterface {
             System.out.println("2.) Brew potions");
             System.out.println("3.) Pack Rations");
             System.out.println("4.) Begin Journey");
+            System.out.println("5.) Signature Builds");
             System.out.println("0.) Abandon Journey");
             int choice = getIntInput();
             switch (choice) {
@@ -70,6 +71,9 @@ public class UserInterface {
                     //checkout
                     startJourney();
                     return;
+                case 5:
+                    //custom-builds
+                    displayCustomBuilds();
                 case 0:
                     System.out.println("\nDestiny has yet to call this one..");
                     return;
@@ -494,5 +498,32 @@ public class UserInterface {
         scanner.nextLine();
         return input;
     }
-
+    public void displayCustomBuilds(){
+        System.out.println("====Custom Builds====" +
+                "\n1.) Beserker" +
+                "\n2.) Shadow Monk" +
+                "\n3.) Storm Archer" +
+                "\n4.) Back");
+        int choice = getIntInput();
+        switch (choice){
+            case 1:
+                Sandwich beserker = new Beserker();
+                currentOrder.addItem(beserker);
+                System.out.println("\nBeserker Added to Quest!");
+                break;
+            case 2:
+                Sandwich shadowMonk = new ShadowMonk();
+                currentOrder.addItem(shadowMonk);
+                System.out.println("\nShadow Monk Added to Quest");
+                break;
+            case 3:
+                Sandwich stormArcher = new StormArcher();
+                currentOrder.addItem(stormArcher);
+                System.out.println("\nStorm Archer Added to Quest");
+            case  0:
+                return;
+            default:
+                System.out.println("\nInvalid Choice!");
+        }
+    }
 }

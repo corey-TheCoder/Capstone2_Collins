@@ -108,13 +108,29 @@ public class Sandwich extends MenuItems {
     }
     @Override
     public String toString(){
-        String sandwichInfo = "A " + size + breadType + "\n" +
-                 " Forged by the flame: " +
-                (toasted ? "Yes" : "No") + "\n\nToppings:\n";
-        for (Toppings toppings : toppings){
-            sandwichInfo += "- " + toppings + "\n";
+        StringBuilder builder = new StringBuilder();
+        builder.append("\n=================================\n");
+
+        builder.append("Class: ")
+                .append(breadType)
+                .append("\n");
+
+        builder.append("Rank: ")
+                .append(size)
+                .append("\n");
+
+        builder.append("Forged in Flame: ")
+                .append(toasted ? "Yes" : "No")
+                .append("\n");
+
+        builder.append("\nEquipment:\n");
+        for(Toppings topping : toppings){
+            builder.append(" - ")
+                    .append(topping)
+                    .append("\n");
         }
-        return sandwichInfo;
+        builder.append("=================================\n");
+        return builder.toString();
     }
 }
 
