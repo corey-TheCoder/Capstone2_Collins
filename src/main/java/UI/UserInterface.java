@@ -15,13 +15,14 @@ public class UserInterface {
     private Order currentOrder;
     private ReceiptManager receiptManager;
 
-    public UserInterface(){
+    public UserInterface() {
         receiptManager = new ReceiptManager();
     }
+
     //menus
-    public void displayHomeScreen(){
+    public void displayHomeScreen() {
         boolean running = true;
-        while(running){
+        while (running) {
             //show menu
             System.out.println("\nCharacter builder");
             System.out.println("1.) Start a new Quest!");
@@ -30,7 +31,7 @@ public class UserInterface {
             int choice = scanner.nextInt();
             //int be acting up
             scanner.nextLine();
-            switch(choice){
+            switch (choice) {
                 case 1:
                     currentOrder = new Order();
                     displayOrderScreen();
@@ -45,21 +46,21 @@ public class UserInterface {
         }
     }
 
-    public void displayOrderScreen(){
+    public void displayOrderScreen() {
         boolean ordering = true;
-        while(ordering){
+        while (ordering) {
             //art menu TBD
             Art.displayQuestMenu();
 
             System.out.println("1.) Forge your loadout: (add sandwich)");
             System.out.println("2.) Brew potions (add drinks)");
             System.out.println("3.) Purchase Rations (add chips)");
-            System.out.println("4.) Start journey (checkout");
-            System.out.println("0. Abandon destiny (cancel order)");
+            System.out.println("4.) Start journey (checkout)");
+            System.out.println("0.) Abandon destiny (cancel order)");
             System.out.println("What will it be?");
             int choice = scanner.nextInt();
             scanner.nextLine();
-            switch(choice){
+            switch (choice) {
                 case 1:
                     //add sandwich
                     forgeLoadout();
@@ -78,15 +79,16 @@ public class UserInterface {
                     break;
                 case 0:
                     System.out.println("\nDestiny has yet to call this one..");
-                    break;
+                    return;
                 default:
                     //input error
                     System.out.println("\n.. too much ale again huh?");
             }
         }
     }
+
     //sandwich
-    public void forgeLoadout(){
+    public void forgeLoadout() {
         System.out.println("\nForge Adventurer Loadout (sandwich)");
         System.out.println("tbd.....");
         //sandwich characteristics
@@ -100,8 +102,9 @@ public class UserInterface {
         currentOrder.addItem(sandwich);
         System.out.println("\nLoadout added to Quest!!");
     }
+
     //drinks
-    public void brewPotions(){
+    public void brewPotions() {
         System.out.println("===Brew Potion==" +
                 "\n1.) Small" +
                 "\n2.) Medium" +
@@ -110,7 +113,7 @@ public class UserInterface {
         int choice = scanner.nextInt();
         scanner.nextLine();
         DrinkSize size;
-        switch (choice){
+        switch (choice) {
             case 1:
                 size = DrinkSize.SMALL;
                 break;
@@ -128,34 +131,64 @@ public class UserInterface {
         String flavor = scanner.nextLine();
         Drink drink = new Drink(flavor, size);
         currentOrder.addItem(drink);
-        System.out.println("Potion added!");
+        System.out.println("\nPotion added!");
     }
+
     //chips
-    public void purchaseRations(){
+    public void purchaseRations() {
         System.out.println("\nChoose ration type " +
-                "\n1.Chips)" +
+                "\n1.) Chips" +
                 "\n2.) Pretzels" +
-                "\n.3) Nachos");
+                "\n3.) Nachos");
         int choice = scanner.nextInt();
         scanner.nextLine();
         String type;
-        switch(choice){
+        switch (choice) {
             case 1:
-                type = "Chips";break;
+                type = "Chips";
+                break;
             case 2:
-                type = "Pretzel";break;
+                type = "Pretzel";
+                break;
             case 3:
-                type = "Nachos";break;
+                type = "Nachos";
+                break;
             default:
                 System.out.println("Invalid choice");
                 return;
         }
-        System.out.println("Rations successfully added");
+        System.out.println("\nRations successfully added!");
     }
-    public void startJourney(){
-        System.out.println("\nBegin Quest");
-        System.out.println("tbd...");
+
+    public void startJourney() {
+        System.out.println("\n=== Order Summary ===\n");
+        //every item in current order
+        for (MenuItems item : currentOrder.getItems()) {
+            System.out.println(item);
+            System.out.println("===================");
+        }
+        double total = currentOrder.getOrderTotal();
+        System.out.println("\nTotal: $" + total);
+
+        System.out.println("\n1.) Confirm Quest");
+        System.out.println("2.) Cancel");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        switch (choice) {
+            case 1:
+                receiptManager.saveReceipt(currentOrder);
+                currentOrder = new Order();
+                System.out.println("Quest Confirmed!");
+                break;
+            case 2:
+                currentOrder.clearOrder();
+                System.out.println("Quest Cancelled..");
+                break;
+            default:
+                System.out.println("Invalid choice");
+        }
     }
+
 
     //return breadType
     private BreadType selectBread(){
@@ -242,7 +275,7 @@ public class UserInterface {
                     sandwich.addToppings(new Toppings("Dragon's Heart",
                             ToppingType.MEAT, false
                     ));
-                    System.out.println("Rare Enhancement received");
+                    System.out.println("Rare Enhancement received!");
                     break;
                 case 2:
                     sandwich.addToppings(new Toppings("Smoked Boar",
@@ -278,7 +311,7 @@ public class UserInterface {
         }
 
     private void addCheese(Sandwich sandwich){
-        System.out.println("===Cheese Menu==" +
+        System.out.println("\n===Cheese Menu==" +
                 "\n1.) Flame, Grant Me Strength" +
                 "\n2.) Golden Vow" +
                 "\n3.) Blessings of the Erdtree" +
@@ -315,7 +348,7 @@ public class UserInterface {
     public void addRegularToppings(Sandwich sandwich){
         boolean moreToppings = true;
         while (moreToppings) {
-            System.out.println("==== Reg Toppings ====" +
+            System.out.println("\n==== Reg Toppings ====" +
                     "\n1.) Lettuce" +
                     "\n2.) Peppers" +
                     "\n3.) Onions" +
@@ -333,7 +366,7 @@ public class UserInterface {
                 case 1:
                     sandwich.addToppings(new Toppings("Lettuce",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("Topping added");
+                    System.out.println("\nTopping added!");
                     break;
                 case 2:
                     sandwich.addToppings(new Toppings("Peppers",
@@ -435,34 +468,6 @@ public class UserInterface {
                 default:
                     System.out.println("\nInvalid Choice");
             }
-        }
-    }
-    public void startCheckout(){
-        System.out.println("\n=== Order Summary ===\n");
-        //every item in current order
-        for (MenuItems item : currentOrder.getItems()){
-            System.out.println(item);
-            System.out.println("===================");
-        }
-        double total = currentOrder.getOrderTotal();
-        System.out.println("\nTotal: $" + total);
-
-        System.out.println("\n1.) Confirm Quest");
-        System.out.println("2.) Cancel");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
-        switch (choice){
-            case 1:
-                receiptManager.saveReceipt(currentOrder);
-                currentOrder = new Order();
-                System.out.println("Quest Confirmed!");
-                break;
-            case 2:
-                currentOrder.clearOrder();
-                System.out.println("Quest Cancelled..");
-                break;
-            default:
-                System.out.println("Invalid choice");
         }
     }
 
