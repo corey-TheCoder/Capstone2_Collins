@@ -2,11 +2,11 @@ package enums;
 
 public enum ToppingType {
     //constants for toppings
-    MEAT("Rare Enhancements"),
-    CHEESE("Arcane Infusions"),
-    OTHER_TOPPINGS("Traits"),
-    SAUCE("Enhancements"),
-    SIDE("Blessings");
+    MEAT("Weapon"),
+    CHEESE("Blessings"),
+    OTHER_TOPPINGS("Abilities"),
+    SAUCE("Traits"),
+    SIDE("Traditions");
 
     private final String displayName;
 

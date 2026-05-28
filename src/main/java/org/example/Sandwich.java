@@ -108,8 +108,8 @@ public class Sandwich extends MenuItems {
     }
     @Override
     public String toString(){
-        String sandwichInfo = "A" + size + " " + breadType +
-                 "Forged by the flame: " +
+        String sandwichInfo = "A " + size + breadType + "\n" +
+                 " Forged by the flame: " +
                 (toasted ? "Yes" : "No") + "\n\nToppings:\n";
         for (Toppings toppings : toppings){
             sandwichInfo += "- " + toppings + "\n";

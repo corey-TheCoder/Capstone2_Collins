@@ -160,7 +160,7 @@ public class UserInterface {
         System.out.println("\nChoose ration type " +
                 "\n1.) Rumble Ball" +
                 "\n2.) Devil Fruit(Random)" +
-                "\n3.) 3 of Sukana's Fingers");
+                "\n3.) Sukana's Fingers(3)");
         int choice = getIntInput();
         String type;
         switch (choice) {
@@ -171,7 +171,7 @@ public class UserInterface {
                 type = "Devil Fruit";
                 break;
             case 3:
-                type = "3 of Sukana's Fingers";
+                type = "Sukana's Fingers(3)";
                 break;
             default:
                 System.out.println("\nInvalid Ration choice");
@@ -381,51 +381,52 @@ public class UserInterface {
                 case 1:
                     sandwich.addToppings(new Toppings("Black Flash",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTrait added");
+                    System.out.println("\nAbility added");
                     break;
                 case 2:
                     sandwich.addToppings(new Toppings("Titan Shifting",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTrait added");
+                    System.out.println("\nAbility added");
                     break;
                 case 3:
                     sandwich.addToppings(new Toppings("Flight",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTrait added");
+                    System.out.println("\nAbility added");
                     break;
                 case 4:
                     sandwich.addToppings(new Toppings("Fire Affinity",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTrait added");
+                    System.out.println("\nAbility added");
                     break;
                 case 5:
                     sandwich.addToppings(new Toppings("10 Shadows Technique",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTrait added");
+                    System.out.println("\nAbility added");
 
                     break;
                 case 6:
                     sandwich.addToppings(new Toppings("Instant Regeneration",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTrait added");
+                    System.out.println("\nAbility added");
                     break;
                 case 7:
                     sandwich.addToppings(new Toppings("Shadow Clones",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTrait added");
+                    System.out.println("\nAbility added");
                     break;
                 case 8:
                     sandwich.addToppings(new Toppings("Infinity",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTrait added");
+                    System.out.println("\nAbility added");
                     break;
                 case 9:
                     sandwich.addToppings(new Toppings("Amateratsu",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nTrait added");
+                    System.out.println("\nAbility added");
                     break;
                 case 0:
                     moreToppings=false;
+                    return;
                 default:
                     System.out.println("Invalid Ability choice!");
             }
