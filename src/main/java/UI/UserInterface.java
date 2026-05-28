@@ -115,17 +115,17 @@ public class UserInterface {
                 size = DrinkSize.Legendary;
                 break;
             default:
-                System.out.println("Invalid choice");
+                System.out.println("\nInvalid size choice");
                 return;
         }
         //affinity
-        System.out.println("\nChoose potion affinity: ");
         System.out.println("1.) Mana");
         System.out.println("2.) Health");
         System.out.println("3.) Stamina");
         System.out.println("4.) Poison");
         System.out.println("5.) Frost");
         System.out.println("6.) Lightning");
+        System.out.println("\nChoose potion affinity: ");
         int affinityChoice = getIntInput();
         Affinity affinity;
         switch (affinityChoice) {
@@ -148,7 +148,7 @@ public class UserInterface {
                 affinity = Affinity.Lightning;
                 break;
             default:
-                System.out.println("Invalid affinity choice");
+                System.out.println("\nInvalid affinity choice");
                 return;
         }
         Drink drink = new Drink(affinity, size);
@@ -174,7 +174,7 @@ public class UserInterface {
                 type = "3 of Sukana's Fingers";
                 break;
             default:
-                System.out.println("Invalid choice");
+                System.out.println("\nInvalid Ration choice");
                 return;
         }
         Chips chips = new Chips(type);
@@ -208,7 +208,7 @@ public class UserInterface {
                 System.out.println("Returning to Tavern...");
                 return;
             default:
-                System.out.println("Invalid choice");
+                System.out.println("Maybe you're confused, try again!");
         }
     }
     //return breadType
@@ -323,12 +323,12 @@ public class UserInterface {
                 case 0:
                     return;
                 default:
-                    System.out.println("Invalid choice");;
+                    System.out.println("Invalid Weapon choice");;
             }
         }
 
     private void addCheese(Sandwich sandwich){
-        System.out.println("\n===SPELLS==" +
+        System.out.println("\n===Blessings==" +
                 "\n1.) Flame, Grant Me Strength" +
                 "\n2.) Golden Vow" +
                 "\n3.) Blessings of the Erdtree" +
@@ -358,7 +358,7 @@ public class UserInterface {
                 System.out.println("\nBlessing added!");
                 break;
             default:
-                return;
+                System.out.println("Invalid Blessing choice");
         }
     }
     public void addRegularToppings(Sandwich sandwich){
@@ -375,7 +375,7 @@ public class UserInterface {
                     "\n8.) Infinity" +
                     "\n9.) Amateratsu" +
                     "\n0.) Back");
-            System.out.println("Choose your ....");
+            System.out.println("Choose your key abilities, you are welcome to choose many!");
             int choice = getIntInput();
             switch (choice) {
                 case 1:
@@ -427,7 +427,7 @@ public class UserInterface {
                 case 0:
                     moreToppings=false;
                 default:
-                    System.out.println("Invalid choice!");
+                    System.out.println("Invalid Ability choice!");
             }
         }
     }
@@ -443,7 +443,7 @@ public class UserInterface {
                     "\n5.) Phantom Step" +
                     "\n6.) Future Sight" +
                     "\n0.) Back");
-            System.out.println("\nChoose your....");
+            System.out.println("\nChoose your traits, you are welcome to choose many! ");
             int choice = getIntInput();
             switch (choice) {
                 case 1:
@@ -479,7 +479,7 @@ public class UserInterface {
                     moreSauce=false;
                     break;
                 default:
-                    System.out.println("\nInvalid Choice");
+                    System.out.println("\nInvalid Traits Choice");
             }
         }
     }

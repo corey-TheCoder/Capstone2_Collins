@@ -43,7 +43,7 @@ public class ReceiptManager {
                     order.getOrderTotal()
             ));
             writer.close();
-            System.out.println("Receipt saved successfully!");
+            System.out.println("Loadout saved successfully!");
         } catch (IOException e) {
             System.out.println("Error saving receipt.");
         }
