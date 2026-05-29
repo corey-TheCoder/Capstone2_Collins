@@ -71,14 +71,15 @@ public class UserInterface {
                 case 4:
                     //checkout
                     startJourney();
-                    return;
+                    break;
                 case 5:
                     //custom-builds
                     displayCustomBuilds();
                     break;
                 case 0:
                     System.out.println("\n❌ Destiny has yet to call this one..");
-                    return;
+                    ordering = false;
+                    break;
                 default:
                     //input error
                     System.out.println("\n⚠\uFE0F  .. too much ale again huh?");
@@ -261,7 +262,7 @@ public class UserInterface {
             Art.selectToppingsBanner();
             System.out.println(
                     "\n1.) Weapons Cache\uD83D\uDD31" +
-                    "\n2.) Spells✨" +
+                    "\n2.) Blessings✨" +
                     "\n3.) Abilities⚗\uFE0F" +
                     "\n4.) Traits\uD83D\uDD2E"+
                     "\n0.) Back");
@@ -302,7 +303,7 @@ public class UserInterface {
                             "\n4.) Elven Bow\uD83C\uDFF9" +
                             "\n5.) Beserker Axe\uD83E\uDE93" +
                             "\n6.) Omnitrix\uD83D\uDC41\uFE0F" +
-                            "\n0. Back");
+                            "\n0). Back");
             System.out.println("Choose your primary weapon: ");
             int choice = getIntInput();
             switch (choice) {

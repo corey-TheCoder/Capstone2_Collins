@@ -10,7 +10,6 @@ public class Main {
         //Build
         UserInterface ui = new UserInterface();
         //display
-
         ui.displayHomeScreen();
     }
 }
