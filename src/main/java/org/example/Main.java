@@ -1,5 +1,6 @@
 package org.example;
 
+import UI.Art;
 import UI.UserInterface;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -9,7 +10,9 @@ public class Main {
         //Build
         UserInterface ui = new UserInterface();
         //display
+        Art.displayTavernBanner();
         ui.displayHomeScreen();
+
 
     }
 }

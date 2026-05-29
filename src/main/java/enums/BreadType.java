@@ -3,10 +3,10 @@ package enums;
 public enum BreadType {
     //constants for bread type
     //constants for archetypes
-    WHITE("Knight"),
-    WHEAT("Ranger"),
-    RYE("Warlock"),
-    WRAP("Cleric");
+    WHITE("Knight⚔\uFE0F"),
+    WHEAT("Ranger\uD83C\uDFF9"),
+    RYE("Warlock\uD83D\uDC80"),
+    WRAP("Cleric✨");
 
     private final String displayName;
 

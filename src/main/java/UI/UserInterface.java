@@ -21,7 +21,7 @@ public class UserInterface {
         boolean running = true;
         while (running) {
             //show menu
-            System.out.println("\nGuild Hall");
+            //System.out.println("\nGuild Hall");
             System.out.println("1.) Assemble a New Adventurer");
             System.out.println("0.) Leave Hall");
             System.out.println("\nWhat will it be?");
@@ -88,8 +88,6 @@ public class UserInterface {
 
     //sandwich
     public void forgeLoadout() {
-        System.out.println("\nForge Adventurer Loadout (sandwich)");
-        System.out.println("tbd.....");
         //sandwich characteristics
         BreadType bread = selectBread();
         SandwichSize size = selectSize();
@@ -219,7 +217,7 @@ public class UserInterface {
     }
     //return breadType
     private BreadType selectBread(){
-        System.out.println("\nChoose your class build!");
+        System.out.println("\n\uD83E\uDEB6Choose your class build!\uD83E\uDEB6");
         BreadType[] archetypes = BreadType.values();
         for (int i = 0; i < archetypes.length; i++){
             System.out.println((i+1) + ". " + archetypes[i]);
