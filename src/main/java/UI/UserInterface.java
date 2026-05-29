@@ -21,10 +21,9 @@ public class UserInterface {
         boolean running = true;
         while (running) {
             //show menu
-            //System.out.println("\nGuild Hall");
             System.out.println("1.) Assemble a New Adventurer");
             System.out.println("0.) Leave Hall");
-            System.out.println("\nWhat will it be?");
+            System.out.println("\nWhat will it be⚔\uFE0F?");
             int choice = getIntInput();
             switch (choice) {
                 case 1:
@@ -240,7 +239,7 @@ public class UserInterface {
     //Forged in flame
     private boolean selectToasted(){
         while(true) {
-            System.out.println("\nWould you like to be FORGED in flame? (Y/N)");
+            System.out.println("\n\uD83D\uDD25Would you like to be FORGED in flame? (Y/N)\uD83D\uDD25");
             String input = scanner.nextLine();
             if (input.equalsIgnoreCase("Y")) {
                 return true;
@@ -255,11 +254,12 @@ public class UserInterface {
         boolean addToppings = true;
 
         while(addToppings){
-            System.out.println("\n===Main Menu===" +
-                    "\n1.) Weapons Cache" +
-                    "\n2.) Spells " +
-                    "\n3.) Abilities" +
-                    "\n4.) Traits"+
+            Art.selectToppingsDisplay();
+            System.out.println(
+                    "\n1.) Weapons Cache\uD83D\uDD31" +
+                    "\n2.) Spells✨" +
+                    "\n3.) Abilities⚗\uFE0F" +
+                    "\n4.) Traits\uD83D\uDD2E"+
                     "\n0.) Back");
             System.out.println("Where would you like to begin: ");
             int choice = getIntInput();
@@ -288,47 +288,47 @@ public class UserInterface {
 
     private void addMeats(Sandwich sandwich) {
             System.out.println("===WEAPONS" +
-                    "\n1.) Dragon's Slayer" +
-                    "\n2.) Iron Longsword" +
-                    "\n3.) Twin Daggers" +
-                    "\n4.) Elven Bow" +
-                    "\n5.) Beserker Axe" +
-                    "\n6.) Omnitrix" +
+                    "\n1.) Dragon's Slayer\uD83D\uDC09" +
+                    "\n2.) Iron Longsword⚔\uFE0F" +
+                    "\n3.) Twin Daggers\uD83D\uDDE1\uFE0F" +
+                    "\n4.) Elven Bow\uD83C\uDFF9" +
+                    "\n5.) Beserker Axe\uD83E\uDE93" +
+                    "\n6.) Omnitrix\uD83D\uDC41\uFE0F" +
                     "\n0. Back");
             System.out.println("Choose your primary weapon: ");
             int choice = getIntInput();
             switch (choice) {
                 case 1:
-                    sandwich.addToppings(new Toppings("Dragon's Slayer",
+                    sandwich.addToppings(new Toppings("Dragon's Slayer\uD83D\uDC09",
                             ToppingType.MEAT, false
                     ));
                     System.out.println("\nWeapon added!");
                     break;
                 case 2:
-                    sandwich.addToppings(new Toppings("Iron Longsword",
+                    sandwich.addToppings(new Toppings("Iron Longsword⚔\uFE0F",
                             ToppingType.MEAT, false));
                     System.out.println("\nWeapon added!");
 
                     break;
                 case 3:
-                    sandwich.addToppings(new Toppings("Twin Daggers",
+                    sandwich.addToppings(new Toppings("Twin Daggers\uD83D\uDDE1\uFE0F",
                             ToppingType.MEAT, false));
                     System.out.println("\nWeapon added!");
 
                     break;
                 case 4:
-                    sandwich.addToppings(new Toppings("Elven Bow",
+                    sandwich.addToppings(new Toppings("Elven Bow\uD83C\uDFF9",
                             ToppingType.MEAT, false));
                     System.out.println("\nWeapon added!");
                     break;
                 case 5:
-                    sandwich.addToppings(new Toppings("Beserker Axe",
+                    sandwich.addToppings(new Toppings("Beserker Axe\uD83E\uDE93",
                             ToppingType.MEAT, false));
                     System.out.println("\nWeapon added!");
 
                     break;
                 case 6:
-                    sandwich.addToppings(new Toppings("Omnitrix",
+                    sandwich.addToppings(new Toppings("Omnitrix\uD83D\uDC41\uFE0F",
                             ToppingType.MEAT, false));
                     System.out.println("\nWeapon added!");
                     break;
@@ -341,31 +341,31 @@ public class UserInterface {
 
     private void addCheese(Sandwich sandwich){
         System.out.println("\n===Blessings==" +
-                "\n1.) Flame, Grant Me Strength" +
-                "\n2.) Golden Vow" +
-                "\n3.) Blessings of the Erdtree" +
-                "\n4.) Black Flame's Protection");
+                "\n1.) Flame, Grant Me Strength\uD83D\uDD25" +
+                "\n2.) Golden Vow\uD83C\uDF19" +
+                "\n3.) Blessings of the Erdtree\uD83C\uDF11" +
+                "\n4.) Black Flame's Protection\uD83D\uDD2E");
         System.out.println("Choose your incantation carefully. As this will be your main source " +
                 "of magic protection");
         int choice = getIntInput();
         switch (choice){
             case 1:
-                sandwich.addToppings(new Toppings("Flame, Grant Me Strength",
+                sandwich.addToppings(new Toppings("Flame, Grant Me Strength\uD83D\uDD25",
                         ToppingType.CHEESE, false));
                 System.out.println("\nBlessing added!");
                 break;
             case 2:
-                sandwich.addToppings(new Toppings("Golden Vow",
+                sandwich.addToppings(new Toppings("Golden Vow\uD83C\uDF19",
                         ToppingType.CHEESE, false));
                 System.out.println("\nBlessing added!");
                 break;
             case 3:
-                sandwich.addToppings(new Toppings("Blessing of the Erdtree",
+                sandwich.addToppings(new Toppings("Blessing of the Erdtree\uD83C\uDF11",
                         ToppingType.CHEESE, false));
                 System.out.println("\nBlessing added!");
                 break;
             case 4:
-                sandwich.addToppings(new Toppings("Black Flame's Protection",
+                sandwich.addToppings(new Toppings("Black Flame's Protection\uD83D\uDD2E",
                         ToppingType.CHEESE, false));
                 System.out.println("\nBlessing added!");
                 break;
