@@ -12,7 +12,5 @@ public class Main {
         //display
         Art.displayTavernBanner();
         ui.displayHomeScreen();
-
-
     }
 }

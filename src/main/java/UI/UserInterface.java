@@ -32,10 +32,10 @@ public class UserInterface {
                     break;
                 case 0:
                     running = false;
-                    System.out.println("\nThis journey is not for you, safe travels!");
+                    System.out.println("\n❌ This journey is not for you, safe travels!");
                     break;
                 default:
-                    System.out.println("You must have had too much ale, try again!");
+                    System.out.println("⚠\uFE0FYou must have had too much ale, try again!");
 
             }
         }
@@ -76,11 +76,11 @@ public class UserInterface {
                     displayCustomBuilds();
                     break;
                 case 0:
-                    System.out.println("\nDestiny has yet to call this one..");
+                    System.out.println("\n❌ Destiny has yet to call this one..");
                     return;
                 default:
                     //input error
-                    System.out.println("\n.. too much ale again huh?");
+                    System.out.println("\n⚠\uFE0F  .. too much ale again huh?");
             }
         }
     }
@@ -96,11 +96,12 @@ public class UserInterface {
         //customizing
         selectToppings(sandwich);
         currentOrder.addItem(sandwich);
-        System.out.println("\nLoadout added to Quest!!");
+        System.out.println("\n\uD83D\uDCDC Loadout added to Quest!!");
     }
     //drinks
     public void brewPotions() {
-        System.out.println("===Brew Potion==" +
+        Art.brewBanner();
+        System.out.println(
                 "\n1.) Minor" +
                 "\n2.) Greater" +
                 "\n3.) Legendary");
@@ -118,16 +119,17 @@ public class UserInterface {
                 size = DrinkSize.Legendary;
                 break;
             default:
-                System.out.println("\nInvalid size choice");
+                System.out.println("\n⚠\uFE0F Invalid size choice");
                 return;
         }
         //affinity
-        System.out.println("1.) Mana");
-        System.out.println("2.) Health");
-        System.out.println("3.) Stamina");
-        System.out.println("4.) Poison");
-        System.out.println("5.) Frost");
-        System.out.println("6.) Lightning");
+        Art.affBanner();
+        System.out.println("1.) Mana\uD83D\uDD35");
+        System.out.println("2.) Health ❤\uFE0F\"");
+        System.out.println("3.) Stamina \uD83D\uDCA8");
+        System.out.println("4.) Poison \uD83E\uDDEA");
+        System.out.println("5.) Frost❄\uFE0F");
+        System.out.println("6.) Lightning⚡");
         System.out.println("\nChoose potion affinity: ");
         int affinityChoice = getIntInput();
         Affinity affinity;
@@ -151,33 +153,33 @@ public class UserInterface {
                 affinity = Affinity.Lightning;
                 break;
             default:
-                System.out.println("\nInvalid affinity choice");
+                System.out.println("\n⚠\uFE0F Invalid affinity choice");
                 return;
         }
         Drink drink = new Drink(affinity, size);
         currentOrder.addItem(drink);
-        System.out.println("\nPotion added!");
+        System.out.println("\n\uD83D\uDCDC Potion added!");
     }
     //chips
     public void purchaseRations() {
         System.out.println("\nChoose ration type " +
-                "\n1.) Rumble Ball" +
-                "\n2.) Devil Fruit(Random)" +
-                "\n3.) Sukana's Fingers(3)");
+                "\n1.) Rumble Ball \uD83D\uDC8E" +
+                "\n2.) Devil Fruit(Random) \uD83C\uDF4E" +
+                "\n3.) Sukana's Fingers(3)☠ \uFE0F");
         int choice = getIntInput();
         String type;
         switch (choice) {
             case 1:
-                type = "Rumble Ball";
+                type = "Rumble Ball \uD83D\uDC8E";
                 break;
             case 2:
-                type = "Devil Fruit";
+                type = "Devil Fruit \uD83C\uDF4E";
                 break;
             case 3:
-                type = "Sukana's Fingers(3)";
+                type = "Sukana's Fingers(3)☠ \uFE0F";
                 break;
             default:
-                System.out.println("\nInvalid Ration choice");
+                System.out.println("\n❌ Invalid Ration choice");
                 return;
         }
         Chips chips = new Chips(type);
@@ -201,14 +203,14 @@ public class UserInterface {
             case 1:
                 receiptManager.saveReceipt(currentOrder);
                 currentOrder = new Order();
-                System.out.println("Quest Confirmed!");
+                System.out.println("\uD83D\uDCDC Quest Confirmed!");
                 System.out.println("Returning to Tavern...");
                 return;
             case 2:
                 currentOrder.clearOrder();
                 currentOrder = new Order();
-                System.out.println("Quest Cancelled..");
-                System.out.println("Returning to Tavern...");
+                System.out.println("❌ Quest Cancelled..");
+                System.out.println("❌ Returning to Tavern...");
                 return;
             default:
                 System.out.println("Maybe you're confused, try again!");
@@ -246,7 +248,7 @@ public class UserInterface {
             } else if (input.equalsIgnoreCase("N")) {
                 return false;
             } else {
-                System.out.println("\nInvalid Choice, please enter Y or N.");
+                System.out.println("\n❌ Invalid Choice, please enter Y or N.");
             }
         }
     }
@@ -254,7 +256,7 @@ public class UserInterface {
         boolean addToppings = true;
 
         while(addToppings){
-            Art.selectToppingsDisplay();
+            Art.selectToppingsBanner();
             System.out.println(
                     "\n1.) Weapons Cache\uD83D\uDD31" +
                     "\n2.) Spells✨" +
@@ -280,7 +282,7 @@ public class UserInterface {
                     addToppings=false;
                     break;
                 default:
-                    System.out.println("Invalid choice");
+                    System.out.println("❌ Invalid choice");
                     return;
             }
         }
@@ -302,40 +304,40 @@ public class UserInterface {
                     sandwich.addToppings(new Toppings("Dragon's Slayer\uD83D\uDC09",
                             ToppingType.MEAT, false
                     ));
-                    System.out.println("\nWeapon added!");
+                    System.out.println("\n✔\uFE0F Weapon added!");
                     break;
                 case 2:
                     sandwich.addToppings(new Toppings("Iron Longsword⚔\uFE0F",
                             ToppingType.MEAT, false));
-                    System.out.println("\nWeapon added!");
+                    System.out.println("\n✔\uFE0F Weapon added!");
 
                     break;
                 case 3:
                     sandwich.addToppings(new Toppings("Twin Daggers\uD83D\uDDE1\uFE0F",
                             ToppingType.MEAT, false));
-                    System.out.println("\nWeapon added!");
+                    System.out.println("\n✔\uFE0F Weapon added!");
 
                     break;
                 case 4:
                     sandwich.addToppings(new Toppings("Elven Bow\uD83C\uDFF9",
                             ToppingType.MEAT, false));
-                    System.out.println("\nWeapon added!");
+                    System.out.println("\n✔\uFE0F Weapon added!");
                     break;
                 case 5:
                     sandwich.addToppings(new Toppings("Beserker Axe\uD83E\uDE93",
                             ToppingType.MEAT, false));
-                    System.out.println("\nWeapon added!");
+                    System.out.println("\n✔\uFE0F Weapon added!");
 
                     break;
                 case 6:
                     sandwich.addToppings(new Toppings("Omnitrix\uD83D\uDC41\uFE0F",
                             ToppingType.MEAT, false));
-                    System.out.println("\nWeapon added!");
+                    System.out.println("\n✔\uFE0F Weapon added!");
                     break;
                 case 0:
                     return;
                 default:
-                    System.out.println("Invalid Weapon choice");;
+                    System.out.println("❌ Invalid Weapon choice");;
             }
         }
 
@@ -352,95 +354,95 @@ public class UserInterface {
             case 1:
                 sandwich.addToppings(new Toppings("Flame, Grant Me Strength\uD83D\uDD25",
                         ToppingType.CHEESE, false));
-                System.out.println("\nBlessing added!");
+                System.out.println("\n✔\uFE0F Blessing added!");
                 break;
             case 2:
                 sandwich.addToppings(new Toppings("Golden Vow\uD83C\uDF19",
                         ToppingType.CHEESE, false));
-                System.out.println("\nBlessing added!");
+                System.out.println("\n✔\uFE0F Blessing added!");
                 break;
             case 3:
                 sandwich.addToppings(new Toppings("Blessing of the Erdtree\uD83C\uDF11",
                         ToppingType.CHEESE, false));
-                System.out.println("\nBlessing added!");
+                System.out.println("\n✔\uFE0F Blessing added!");
                 break;
             case 4:
                 sandwich.addToppings(new Toppings("Black Flame's Protection\uD83D\uDD2E",
                         ToppingType.CHEESE, false));
-                System.out.println("\nBlessing added!");
+                System.out.println("\n✔\uFE0F Blessing added!");
                 break;
             default:
-                System.out.println("Invalid Blessing choice");
+                System.out.println("❌ Invalid Blessing choice");
         }
     }
     public void addRegularToppings(Sandwich sandwich){
         boolean moreToppings = true;
         while (moreToppings) {
             System.out.println("\n==== Abilities ====" +
-                    "\n1.) Black Flash" +
-                    "\n2.) Titan Shifting" +
-                    "\n3.) Flight" +
-                    "\n4.) Fire Affinity" +
+                    "\n1.) Black Flash\uD83D\uDCA5" +
+                    "\n2.) Titan Shifting⚡" +
+                    "\n3.) Flight\uD83D\uDCA8" +
+                    "\n4.) Fire Affinity\uD83D\uDD25" +
                     "\n5.) 10 Shadows Technique" +
-                    "\n6.) Instant Regeneration" +
-                    "\n7.) Shadow Clones" +
-                    "\n8.) Infinity" +
-                    "\n9.) Amateratsu" +
+                    "\n6.) Instant Regeneration\uD83E\uDE78" +
+                    "\n7.) Shadow Clones\uD83D\uDD2E" +
+                    "\n8.) Infinity\uD83C\uDF19" +
+                    "\n9.) Amateratsu\uD83C\uDF11" +
                     "\n0.) Back");
             System.out.println("Choose your key abilities, you are welcome to choose many!");
             int choice = getIntInput();
             switch (choice) {
                 case 1:
-                    sandwich.addToppings(new Toppings("Black Flash",
+                    sandwich.addToppings(new Toppings("Black Flash\uD83D\uDCA5",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nAbility added");
+                    System.out.println("\n✔\uFE0F Ability added");
                     break;
                 case 2:
-                    sandwich.addToppings(new Toppings("Titan Shifting",
+                    sandwich.addToppings(new Toppings("Titan Shifting⚡",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nAbility added");
+                    System.out.println("\n✔\uFE0F Ability added");
                     break;
                 case 3:
-                    sandwich.addToppings(new Toppings("Flight",
+                    sandwich.addToppings(new Toppings("Flight\uD83D\uDCA8",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nAbility added");
+                    System.out.println("\n✔\uFE0F Ability added");
                     break;
                 case 4:
                     sandwich.addToppings(new Toppings("Fire Affinity",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nAbility added");
+                    System.out.println("\n✔\uFE0F Ability added");
                     break;
                 case 5:
                     sandwich.addToppings(new Toppings("10 Shadows Technique",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nAbility added");
+                    System.out.println("\n✔\uFE0F Ability added");
 
                     break;
                 case 6:
-                    sandwich.addToppings(new Toppings("Instant Regeneration",
+                    sandwich.addToppings(new Toppings("Instant Regeneration\uD83E\uDE78",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nAbility added");
+                    System.out.println("\n✔\uFE0F Ability added");
                     break;
                 case 7:
-                    sandwich.addToppings(new Toppings("Shadow Clones",
+                    sandwich.addToppings(new Toppings("Shadow Clones\uD83D\uDD2E",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nAbility added");
+                    System.out.println("\n✔\uFE0F Ability added");
                     break;
                 case 8:
-                    sandwich.addToppings(new Toppings("Infinity",
+                    sandwich.addToppings(new Toppings("Infinity\uD83C\uDF19",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nAbility added");
+                    System.out.println("\n✔\uFE0F Ability added");
                     break;
                 case 9:
-                    sandwich.addToppings(new Toppings("Amateratsu",
+                    sandwich.addToppings(new Toppings("Amateratsu\uD83C\uDF11",
                             ToppingType.OTHER_TOPPINGS, false));
-                    System.out.println("\nAbility added");
+                    System.out.println("\n✔\uFE0F Ability added");
                     break;
                 case 0:
                     moreToppings=false;
                     return;
                 default:
-                    System.out.println("Invalid Ability choice!");
+                    System.out.println("❌ Invalid Ability choice!");
             }
         }
     }
@@ -449,51 +451,51 @@ public class UserInterface {
         boolean moreSauce=true;
         while(moreSauce) {
             System.out.println("\n===TRAITS" +
-                    "\n1.) Healing Aura" +
-                    "\n2.) Beserker's Rage" +
-                    "\n3.) Blood Pact" +
-                    "\n4.) Divine Protection" +
-                    "\n5.) Phantom Step" +
-                    "\n6.) Future Sight" +
+                    "\n1.) Healing Aura\uD83D\uDCAB" +
+                    "\n2.) Beserker's Rage\uD83D\uDD25" +
+                    "\n3.) Blood Pact\uD83E\uDE78" +
+                    "\n4.) Divine Protection☀\uFE0F" +
+                    "\n5.) Phantom Step\uD83C\uDF19" +
+                    "\n6.) Future Sight\uD83D\uDC41\uFE0F" +
                     "\n0.) Back");
             System.out.println("\nChoose your traits, you are welcome to choose many! ");
             int choice = getIntInput();
             switch (choice) {
                 case 1:
-                    sandwich.addToppings(new Toppings("Healing Aura",
+                    sandwich.addToppings(new Toppings("Healing Aura\uD83D\uDCAB",
                             ToppingType.SAUCE, false));
-                    System.out.println("\nTrait added");
+                    System.out.println("\n✔\uFE0F Trait added");
                     break;
                 case 2:
-                    sandwich.addToppings(new Toppings("Beserker's Rage",
+                    sandwich.addToppings(new Toppings("Beserker's Rage\uD83D\uDD25",
                             ToppingType.SAUCE, false));
-                    System.out.println("\nTrait added");
+                    System.out.println("\n✔\uFE0F Trait added");
                     break;
                 case 3:
-                    sandwich.addToppings(new Toppings("Blood Pact",
+                    sandwich.addToppings(new Toppings("Blood Pact\uD83E\uDE78",
                             ToppingType.SAUCE, false));
-                    System.out.println("\nTrait added");
+                    System.out.println("\n✔\uFE0F Trait added");
                     break;
                 case 4:
-                    sandwich.addToppings(new Toppings("Divine Protection",
+                    sandwich.addToppings(new Toppings("Divine Protection☀\uFE0F",
                             ToppingType.SAUCE, false));
-                    System.out.println("\nTrait added");
+                    System.out.println("\n✔\uFE0F Trait added");
                     break;
                 case 5:
-                    sandwich.addToppings(new Toppings("Phantom Step",
+                    sandwich.addToppings(new Toppings("Phantom Step\uD83C\uDF19",
                             ToppingType.SAUCE, false));
-                    System.out.println("\nTrait added");
+                    System.out.println("\n✔\uFE0F Trait added");
                     break;
                 case 6:
-                    sandwich.addToppings(new Toppings("Future Sight",
+                    sandwich.addToppings(new Toppings("Future Sight\uD83D\uDC41\uFE0F",
                             ToppingType.SAUCE, false));
-                    System.out.println("\nTrait added");
+                    System.out.println("\n✔\uFE0F Trait added");
                     break;
                 case 0:
                     moreSauce=false;
                     break;
                 default:
-                    System.out.println("\nInvalid Traits Choice");
+                    System.out.println("\n❌ Invalid Traits Choice");
             }
         }
     }
@@ -503,7 +505,7 @@ public class UserInterface {
             try {
                 return Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
-                System.out.println("The Guild cannot make that request... try again");
+                System.out.println("⚠\uFE0FThe Guild cannot make that request... try again⚠\uFE0F");
             }
         }
     }
@@ -518,23 +520,28 @@ public class UserInterface {
             case 1:
                 Sandwich beserker = new Beserker();
                 currentOrder.addItem(beserker);
-                System.out.println("\nBeserker Added to Quest!");
+                Art.beserkerBanner();
+                System.out.println("\n⚔\uFE0F\uD83D\uDD25 Beserker Added to Quest!" +
+                        "\nContinue preparing your adventure");
+
                 break;
             case 2:
                 Sandwich shadowMonk = new ShadowMonk();
                 currentOrder.addItem(shadowMonk);
-                System.out.println("\nShadow Monk Added to Quest");
+                Art.monkBanner();
+                System.out.println("\n\uD83C\uDF11\uD83D\uDD2EShadow Monk Added to Quest" +
+                        "\nContinue preparing your adventure");
                 break;
             case 3:
                 Sandwich stormArcher = new StormArcher();
                 currentOrder.addItem(stormArcher);
-                System.out.println("\nStorm Archer Added to Quest" +
-                        "\nContniue preparing your adventure");
+                System.out.println("\n\uD83C\uDFF9❄\uFE0F Storm Archer Added to Quest" +
+                        "\nContinue preparing your adventure");
                 break;
             case  4:
                 return;
             default:
-                System.out.println("\nInvalid Choice!");
+                System.out.println("\n❌ Invalid Choice!");
         }
     }
 }
