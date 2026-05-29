@@ -20,12 +20,12 @@ public class ShadowMonk extends Sandwich{
         //ability
         addToppings(new Toppings("Phantom Step",ToppingType.SAUCE, false));
     }
-    @Override
-    public String toString(){
-        return """
-                ========================
-                      SHADOW MONK
-                =======================
-                """ + super.toString();
-    }
+//    @Override
+//    public String toString(){
+//        return """
+//                ========================
+//                      SHADOW MONK
+//                =======================
+//                """ + super.toString();
+
 }

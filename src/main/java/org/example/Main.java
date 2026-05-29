@@ -10,7 +10,7 @@ public class Main {
         //Build
         UserInterface ui = new UserInterface();
         //display
-        Art.displayTavernBanner();
+
         ui.displayHomeScreen();
     }
 }

@@ -21,6 +21,7 @@ public class UserInterface {
         boolean running = true;
         while (running) {
             //show menu
+            Art.displayTavernBanner();
             System.out.println("1.) Assemble a New Adventurer");
             System.out.println("0.) Leave Hall");
             System.out.println("\nWhat will it be⚔\uFE0F?");
@@ -102,9 +103,9 @@ public class UserInterface {
     public void brewPotions() {
         Art.brewBanner();
         System.out.println(
-                "\n1.) Minor" +
-                "\n2.) Greater" +
-                "\n3.) Legendary");
+                "\n1.) ◈ Minor" +
+                "\n2.) ◆ Greater" +
+                "\n3.) ★ Legendary");
         System.out.println("Choose size: ");
         int choice = getIntInput();
         DrinkSize size;
@@ -125,7 +126,7 @@ public class UserInterface {
         //affinity
         Art.affBanner();
         System.out.println("1.) Mana\uD83D\uDD35");
-        System.out.println("2.) Health ❤\uFE0F\"");
+        System.out.println("2.) Health ❤\uFE0F");
         System.out.println("3.) Stamina \uD83D\uDCA8");
         System.out.println("4.) Poison \uD83E\uDDEA");
         System.out.println("5.) Frost❄\uFE0F");
@@ -291,14 +292,17 @@ public class UserInterface {
 
     private void addMeats(Sandwich sandwich) {
         Art.weaponsBanner();
+        boolean moreWeapons = true;
+
+        while (moreWeapons) {
             System.out.println(
                     "\n1.) Dragon's Slayer\uD83D\uDC09" +
-                    "\n2.) Iron Longsword⚔\uFE0F" +
-                    "\n3.) Twin Daggers\uD83D\uDDE1\uFE0F" +
-                    "\n4.) Elven Bow\uD83C\uDFF9" +
-                    "\n5.) Beserker Axe\uD83E\uDE93" +
-                    "\n6.) Omnitrix\uD83D\uDC41\uFE0F" +
-                    "\n0. Back");
+                            "\n2.) Iron Longsword⚔\uFE0F" +
+                            "\n3.) Twin Daggers\uD83D\uDDE1\uFE0F" +
+                            "\n4.) Elven Bow\uD83C\uDFF9" +
+                            "\n5.) Beserker Axe\uD83E\uDE93" +
+                            "\n6.) Omnitrix\uD83D\uDC41\uFE0F" +
+                            "\n0. Back");
             System.out.println("Choose your primary weapon: ");
             int choice = getIntInput();
             switch (choice) {
@@ -337,11 +341,14 @@ public class UserInterface {
                     System.out.println("\n✔\uFE0F Weapon added!");
                     break;
                 case 0:
+                    moreWeapons=false;
                     return;
                 default:
-                    System.out.println("❌ Invalid Weapon choice");;
+                    System.out.println("❌ Invalid Weapon choice");
+                    ;
             }
         }
+    }
 
     private void addCheese(Sandwich sandwich){
         Art.blessingsBanner();
@@ -441,6 +448,7 @@ public class UserInterface {
                     System.out.println("\n✔\uFE0F Ability added");
                     break;
                 case 0:
+                    System.out.println("\n\uD83E\uDEB6 Back to THE FORGE!");
                     moreToppings=false;
                     return;
                 default:
@@ -494,6 +502,7 @@ public class UserInterface {
                     System.out.println("\n✔\uFE0F Trait added");
                     break;
                 case 0:
+                    System.out.println("\n\uD83E\uDEB6 Back to THE FORGE!");
                     moreSauce=false;
                     break;
                 default:

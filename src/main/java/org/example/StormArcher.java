@@ -18,12 +18,12 @@ public class StormArcher extends Sandwich{
         addToppings(new Toppings("Lightning Affinity",ToppingType.OTHER_TOPPINGS, false));
         addToppings(new Toppings("Phantom Step",ToppingType.OTHER_TOPPINGS, false));
     }
-    @Override
-    public String toString(){
-        return """
-                ========================
-                      STORM ARCHER
-                =======================
-                """ + super.toString();
-    }
+//    @Override
+//    public String toString(){
+//        return """
+//                ========================
+//                      STORM ARCHER
+//                =======================
+//                """ + super.toString();
+
 }
