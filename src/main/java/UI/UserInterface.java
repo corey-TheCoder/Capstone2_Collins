@@ -537,6 +537,7 @@ public class UserInterface {
             case 3:
                 Sandwich stormArcher = new StormArcher();
                 currentOrder.addItem(stormArcher);
+                Art.archerBanner();
                 System.out.println("\n\uD83C\uDFF9❄\uFE0F Storm Archer Added to Quest" +
                         "\nContinue preparing your adventure");
                 break;
