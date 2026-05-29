@@ -162,6 +162,7 @@ public class UserInterface {
     }
     //chips
     public void purchaseRations() {
+        Art.rationsBanner();
         System.out.println("\nChoose ration type " +
                 "\n1.) Rumble Ball \uD83D\uDC8E" +
                 "\n2.) Devil Fruit(Random) \uD83C\uDF4E" +
@@ -184,10 +185,10 @@ public class UserInterface {
         }
         Chips chips = new Chips(type);
         currentOrder.addItem(chips);
-        System.out.println("\nRations successfully added!");
+        System.out.println("\n\uD83D\uDCDC Rations successfully added!");
     }
     public void startJourney() {
-        System.out.println("\n=== Order Summary ===\n");
+        Art.questBanner();
         //every item in current order
         for (MenuItems item : currentOrder.getItems()) {
             System.out.println(item);
@@ -204,7 +205,7 @@ public class UserInterface {
                 receiptManager.saveReceipt(currentOrder);
                 currentOrder = new Order();
                 System.out.println("\uD83D\uDCDC Quest Confirmed!");
-                System.out.println("Returning to Tavern...");
+                System.out.println("✨Returning to Tavern...");
                 return;
             case 2:
                 currentOrder.clearOrder();
@@ -213,7 +214,7 @@ public class UserInterface {
                 System.out.println("❌ Returning to Tavern...");
                 return;
             default:
-                System.out.println("Maybe you're confused, try again!");
+                System.out.println("⚠\uFE0FMaybe you're confused, try again!");
         }
     }
     //return breadType
@@ -282,14 +283,15 @@ public class UserInterface {
                     addToppings=false;
                     break;
                 default:
-                    System.out.println("❌ Invalid choice");
+                    System.out.println("⚠\uFE0F Invalid choice");
                     return;
             }
         }
     }
 
     private void addMeats(Sandwich sandwich) {
-            System.out.println("===WEAPONS" +
+        Art.weaponsBanner();
+            System.out.println(
                     "\n1.) Dragon's Slayer\uD83D\uDC09" +
                     "\n2.) Iron Longsword⚔\uFE0F" +
                     "\n3.) Twin Daggers\uD83D\uDDE1\uFE0F" +
@@ -342,8 +344,8 @@ public class UserInterface {
         }
 
     private void addCheese(Sandwich sandwich){
-        System.out.println("\n===Blessings==" +
-                "\n1.) Flame, Grant Me Strength\uD83D\uDD25" +
+        Art.blessingsBanner();
+        System.out.println("\n1.) Flame, Grant Me Strength\uD83D\uDD25" +
                 "\n2.) Golden Vow\uD83C\uDF19" +
                 "\n3.) Blessings of the Erdtree\uD83C\uDF11" +
                 "\n4.) Black Flame's Protection\uD83D\uDD2E");
@@ -378,8 +380,8 @@ public class UserInterface {
     public void addRegularToppings(Sandwich sandwich){
         boolean moreToppings = true;
         while (moreToppings) {
-            System.out.println("\n==== Abilities ====" +
-                    "\n1.) Black Flash\uD83D\uDCA5" +
+            Art.abilitiesBanner();
+            System.out.println("\n1.) Black Flash\uD83D\uDCA5" +
                     "\n2.) Titan Shifting⚡" +
                     "\n3.) Flight\uD83D\uDCA8" +
                     "\n4.) Fire Affinity\uD83D\uDD25" +
@@ -450,8 +452,8 @@ public class UserInterface {
     public void addSauces(Sandwich sandwich) {
         boolean moreSauce=true;
         while(moreSauce) {
-            System.out.println("\n===TRAITS" +
-                    "\n1.) Healing Aura\uD83D\uDCAB" +
+            Art.traitsBanner();
+            System.out.println("\n1.) Healing Aura\uD83D\uDCAB" +
                     "\n2.) Beserker's Rage\uD83D\uDD25" +
                     "\n3.) Blood Pact\uD83E\uDE78" +
                     "\n4.) Divine Protection☀\uFE0F" +
@@ -510,8 +512,8 @@ public class UserInterface {
         }
     }
     public void displayCustomBuilds(){
-        System.out.println("====Custom Builds====" +
-                "\n1.) Beserker" +
+        Art.presetsBanner();
+        System.out.println("\n1.) Beserker" +
                 "\n2.) Shadow Monk" +
                 "\n3.) Storm Archer" +
                 "\n4.) Back");
