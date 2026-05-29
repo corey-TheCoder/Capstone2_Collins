@@ -15,6 +15,7 @@ public class Beserker extends Sandwich{
         addToppings(new Toppings("Flame, Grant Me Strength", ToppingType.CHEESE, false));
         addToppings(new Toppings("Black Flash", ToppingType.OTHER_TOPPINGS,false));
     }
+    @Override
     public String toString(){
         return """
                 ========================

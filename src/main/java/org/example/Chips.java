@@ -23,6 +23,6 @@ public class Chips extends MenuItems{
     }
     @Override
     public String toString(){
-        return type + " Rations";
+        return type;
     }
 }

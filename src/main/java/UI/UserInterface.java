@@ -37,6 +37,7 @@ public class UserInterface {
                     break;
                 default:
                     System.out.println("You must have had too much ale, try again!");
+
             }
         }
     }
@@ -74,6 +75,7 @@ public class UserInterface {
                 case 5:
                     //custom-builds
                     displayCustomBuilds();
+                    break;
                 case 0:
                     System.out.println("\nDestiny has yet to call this one..");
                     return;
@@ -239,10 +241,17 @@ public class UserInterface {
     }
     //Forged in flame
     private boolean selectToasted(){
-        System.out.println("\nWould you like to be FORGED in flame? (Y/N)");
-        String input = scanner.nextLine();
-
-        return input.equalsIgnoreCase("Y");
+        while(true) {
+            System.out.println("\nWould you like to be FORGED in flame? (Y/N)");
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("Y")) {
+                return true;
+            } else if (input.equalsIgnoreCase("N")) {
+                return false;
+            } else {
+                System.out.println("\nInvalid Choice, please enter Y or N.");
+            }
+        }
     }
     private void selectToppings(Sandwich sandwich){
         boolean addToppings = true;
@@ -274,6 +283,7 @@ public class UserInterface {
                     break;
                 default:
                     System.out.println("Invalid choice");
+                    return;
             }
         }
     }
@@ -479,7 +489,8 @@ public class UserInterface {
                 case 6:
                     sandwich.addToppings(new Toppings("Future Sight",
                             ToppingType.SAUCE, false));
-                    System.out.println("\nTrait added");;
+                    System.out.println("\nTrait added");
+                    break;
                 case 0:
                     moreSauce=false;
                     break;
@@ -490,13 +501,13 @@ public class UserInterface {
     }
     //method for int input handling
     private int getIntInput(){
-        while (!scanner.hasNextInt()){
-            System.out.println("\nInvalid input!");
-            scanner.nextLine();
+        while (true) {
+            try {
+                return Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("The Guild cannot make that request... try again");
+            }
         }
-        int input = scanner.nextInt();
-        scanner.nextLine();
-        return input;
     }
     public void displayCustomBuilds(){
         System.out.println("====Custom Builds====" +
@@ -519,8 +530,10 @@ public class UserInterface {
             case 3:
                 Sandwich stormArcher = new StormArcher();
                 currentOrder.addItem(stormArcher);
-                System.out.println("\nStorm Archer Added to Quest");
-            case  0:
+                System.out.println("\nStorm Archer Added to Quest" +
+                        "\nContniue preparing your adventure");
+                break;
+            case  4:
                 return;
             default:
                 System.out.println("\nInvalid Choice!");
